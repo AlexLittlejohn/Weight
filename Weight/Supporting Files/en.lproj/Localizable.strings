@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  Weight
+
+  Created by Alex Littlejohn on 2016/02/24.
+  Copyright © 2016 Alex Littlejohn. All rights reserved.
+*/
+
+"goalTitleLabel" = "Goal";
+"maxTitleLabel" = "Highest";
+"minTitleLabel" = "Lowest";
+
+"units.kilograms" = "kg";
+"units.pounds" = "lbs";
+"units.stone" = "stone";

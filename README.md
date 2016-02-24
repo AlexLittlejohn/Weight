@@ -1,7 +1,7 @@
 # Weight
 
 A weight tracking app written using [ReSwift](https://github.com/ReSwift/ReSwift).
-This app is mostly just an excercise for learning and trying new things.
+This app is mostly just an exercise for learning and trying new things.
 
 ### TODO:
 

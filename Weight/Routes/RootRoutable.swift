@@ -25,7 +25,7 @@ class RootRoutable: Routable {
             navigationController.popToViewController(viewController, animated: true)
             return viewController as! Routable
         }  else {
-            let viewController = UIStoryboard(name: "Storyboard", bundle: nil)
+            let viewController = UIStoryboard(name: WeightViewController.identifier, bundle: nil)
                 .instantiateViewControllerWithIdentifier(WeightViewController.identifier) as! WeightViewController
             navigationController.pushViewController(viewController, animated: true)
             return viewController

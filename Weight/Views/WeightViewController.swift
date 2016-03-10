@@ -35,11 +35,11 @@ class WeightViewController: UIViewController, StoreSubscriber, Routable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        goalTitleLabel.text = localizableString("goalTitleLabel")
-        maxTitleLabel.text = localizableString("maxTitleLabel")
-        minTitleLabel.text = localizableString("minTitleLabel")
+        goalTitleLabel.text = localizedString("goalTitleLabel")
+        maxTitleLabel.text = localizedString("maxTitleLabel")
+        minTitleLabel.text = localizedString("minTitleLabel")
         
-        let units = localizableString("units.kilograms")
+        let units = localizedString("units.kilograms")
         
         currentUnitsLabel.text = units
         goalUnitsLabel.text = units

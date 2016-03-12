@@ -32,10 +32,10 @@ func stoneToKilograms(value: Double) -> Double {
     return value * 6.35029
 }
 
-func convert(value: Double, units: Units, targetUnits: Units) -> Double {
-    switch units {
+func convert(value: Double, unit: Unit, targetUnit: Unit) -> Double {
+    switch unit {
     case .Kilograms:
-        switch targetUnits {
+        switch targetUnit {
         case .Pounds:
             return kilogramsToPounds(value)
         case .Stone:
@@ -44,7 +44,7 @@ func convert(value: Double, units: Units, targetUnits: Units) -> Double {
             return value
         }
     case .Pounds:
-        switch targetUnits {
+        switch targetUnit {
         case .Pounds:
             return value
         case .Stone:
@@ -53,7 +53,7 @@ func convert(value: Double, units: Units, targetUnits: Units) -> Double {
             return poundsToKilograms(value)
         }
     case .Stone:
-        switch targetUnits {
+        switch targetUnit {
         case .Pounds:
             return stoneToPounds(value)
         case .Stone:

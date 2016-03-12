@@ -9,4 +9,4 @@
 import UIKit
 import ReSwift
 
-let mainStore = Store<AppState>(reducer: AppReducer(), state: populatedAppState(), middleware: [SaveWeightMiddleware])
+let mainStore = Store<AppState>(reducer: AppReducer(), state: populatedAppState(), middleware: [SaveWeightMiddleware, SaveGoalMiddleware])

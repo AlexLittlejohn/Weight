@@ -42,3 +42,9 @@ enum Units: Int, CustomStringConvertible {
     }
 }
 
+
+extension Weight {
+    func convertTo(toUnits: Units) -> Double {
+        return convert(weight, units: units, targetUnits: toUnits)
+    }
+}

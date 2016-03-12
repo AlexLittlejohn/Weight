@@ -1,5 +1,5 @@
 //
-//  CaptureState.swift
+//  CaptureMode.swift
 //  Weight
 //
 //  Created by Alex Littlejohn on 2016/03/12.
@@ -8,6 +8,6 @@
 
 import UIKit
 
-enum CaptureState {
-    case Goal, Weight
+enum CaptureMode: Int {
+    case Goal = 0, Weight = 1
 }

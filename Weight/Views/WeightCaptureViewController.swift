@@ -19,6 +19,9 @@ class WeightCaptureViewController: UIViewController, StoreSubscriber, Routable {
     @IBOutlet weak var gradientView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     
+    
+    var captureMode: CaptureMode = .Weight
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,6 +34,8 @@ class WeightCaptureViewController: UIViewController, StoreSubscriber, Routable {
         
         titleLabel.font = Typography.NavigationBar.Title.font
         titleLabel.textColor = Colors.NavigationBar.Title.color
+        
+        view.sendSubviewToBack(weightPicker)
     }
         
     @IBAction func confirm(sender: AnyObject) {
@@ -38,10 +43,10 @@ class WeightCaptureViewController: UIViewController, StoreSubscriber, Routable {
             return
         }
         
-        let action = AddWeightAction(weight: weight)
+        let addAction = action(captureMode, weight: weight)
         let navigateAction = SetRouteAction([WeightViewController.identifier])
         
-        mainStore.dispatch(action)
+        mainStore.dispatch(addAction)
         mainStore.dispatch(navigateAction)
     }
     
@@ -59,7 +64,29 @@ class WeightCaptureViewController: UIViewController, StoreSubscriber, Routable {
     }
     
     func newState(state: AppState) {
-        
+        captureMode = state.captureMode
+        configureTitle(state.captureMode)
     }
-
+    
+    func configureTitle(mode: CaptureMode) {
+        titleLabel.text = title(mode)
+    }
+    
+    func title(mode: CaptureMode) -> String {
+        switch mode {
+        case .Weight:
+            return localizedString("addWeightTitle")
+        case .Goal:
+            return localizedString("addGoalTitle")
+        }
+    }
+    
+    func action(mode: CaptureMode, weight: Weight) -> StandardActionConvertible {
+        if mode == .Goal {
+            let goal = Goal(weight: weight.weight, unit:  weight.unit)
+            return AddGoalAction(goal: goal)
+        } else {
+            return AddWeightAction(weight: weight)
+        }
+    }
 }

@@ -21,6 +21,7 @@ class WeightViewController: UIViewController, StoreSubscriber, Routable {
     @IBOutlet weak var goalTitleLabel: UILabel!
     @IBOutlet weak var goalLabel: UILabel!
     @IBOutlet weak var goalUnitsLabel: UILabel!
+    @IBOutlet weak var addGoalButton: UIButton!
     
     @IBOutlet weak var maxTitleLabel: UILabel!
     @IBOutlet weak var maxLabel: UILabel!
@@ -39,13 +40,17 @@ class WeightViewController: UIViewController, StoreSubscriber, Routable {
     }
     
     @IBAction func addWeight(sender: AnyObject) {
-        let action = SetRouteAction([WeightCaptureViewController.identifier])
-        mainStore.dispatch(action)
+        let modeAction = SetCaptureModeAction(mode: .Weight)
+        let navigateAction = SetRouteAction([WeightCaptureViewController.identifier])
+        mainStore.dispatch(modeAction)
+        mainStore.dispatch(navigateAction)
     }
     
     @IBAction func addGoal(sender: AnyObject) {
-        let action = SetRouteAction([WeightCaptureViewController.identifier])
-        mainStore.dispatch(action)
+        let modeAction = SetCaptureModeAction(mode: .Goal)
+        let navigateAction = SetRouteAction([WeightCaptureViewController.identifier])
+        mainStore.dispatch(modeAction)
+        mainStore.dispatch(navigateAction)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -57,10 +62,11 @@ class WeightViewController: UIViewController, StoreSubscriber, Routable {
     }
     
     func newState(state: AppState) {
-        updateCurrent(state.weights, unit: state.units)
-        updateMaximums(state.weights, units: state.units)
-        updateMinimums(state.weights, units: state.units)
-        updateUnits(state.units)
+        updateCurrent(state.weights, unit: state.unit)
+        updateMaximums(state.weights, unit: state.unit)
+        updateMinimums(state.weights, unit: state.unit)
+        updateUnits(state.unit)
+        updateGoal(state.goal, unit: state.unit)
     }
     
     func updateUnits(unit: Unit) {
@@ -86,8 +92,17 @@ class WeightViewController: UIViewController, StoreSubscriber, Routable {
         maxLabel.text = String(format: "%.2f", element.convertTo(unit))
     }
     
-    func updateGoal() {
-        
+    func updateGoal(goal: Goal?, unit: Unit) {
+        if let goal = goal {
+            goalUnitsLabel.hidden = false
+            goalLabel.hidden = false
+            goalLabel.text = String(format: "%.2f", goal.convertTo(unit))
+            addGoalButton.setTitle(localizedString("changeGoalButtonTitle"), forState: .Normal)
+        } else {
+            goalUnitsLabel.hidden = true
+            goalLabel.hidden = true
+            addGoalButton.setTitle(localizedString("addGoalButtonTitle"), forState: .Normal)
+        }
     }
     
     func updateCurrent(weights: [Weight], unit: Unit) {

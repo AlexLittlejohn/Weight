@@ -37,8 +37,11 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvR-fy-lvO">
-                                <rect key="frame" x="40" y="206" width="112.5" height="57"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvR-fy-lvO">
+                                <rect key="frame" x="40" y="206" width="0.0" height="57"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="0Iz-lo-7ZM"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="48"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -80,8 +83,8 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USj-HO-2Bs">
-                                <rect key="frame" x="160" y="229" width="56.5" height="28.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USj-HO-2Bs">
+                                <rect key="frame" x="47.5" y="257.5" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -105,6 +108,14 @@
                                     <action selector="addWeight:" destination="iXF-dH-7Rf" eventType="touchUpInside" id="4Cs-r5-xkh"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XNQ-r7-mwe">
+                                <rect key="frame" x="55.5" y="231.5" width="75" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Add a goal"/>
+                                <connections>
+                                    <action selector="addGoal:" destination="iXF-dH-7Rf" eventType="touchUpInside" id="OXT-F6-RMR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -124,8 +135,10 @@
                             <constraint firstItem="uBx-Gj-HeQ" firstAttribute="top" secondItem="FDm-3E-e5m" secondAttribute="bottom" id="XGd-cZ-59u"/>
                             <constraint firstItem="1AQ-Oc-QAy" firstAttribute="leading" secondItem="p9H-6N-8ZZ" secondAttribute="leading" id="Yql-M5-vC6"/>
                             <constraint firstItem="6c7-7m-g53" firstAttribute="top" secondItem="p9H-6N-8ZZ" secondAttribute="top" id="c9n-Jb-NH7"/>
+                            <constraint firstItem="XNQ-r7-mwe" firstAttribute="baseline" secondItem="USj-HO-2Bs" secondAttribute="baseline" id="eqq-mS-biE"/>
                             <constraint firstItem="fyw-4D-yZT" firstAttribute="baseline" secondItem="1AQ-Oc-QAy" secondAttribute="baseline" id="fFU-hc-TJF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ux2-gU-9Z5" secondAttribute="trailing" constant="20" id="fWe-vn-8QS"/>
+                            <constraint firstItem="XNQ-r7-mwe" firstAttribute="leading" secondItem="USj-HO-2Bs" secondAttribute="trailing" constant="8" id="hUo-yb-6Ni"/>
                             <constraint firstItem="lvR-fy-lvO" firstAttribute="top" secondItem="c6L-Hk-cGx" secondAttribute="bottom" id="kaH-9u-6De"/>
                             <constraint firstItem="p9H-6N-8ZZ" firstAttribute="top" secondItem="lvR-fy-lvO" secondAttribute="bottom" constant="40" id="qgy-4J-5h7"/>
                             <constraint firstItem="6c7-7m-g53" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="p9H-6N-8ZZ" secondAttribute="trailing" constant="20" id="sUI-BM-RrY"/>
@@ -141,6 +154,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addGoalButton" destination="XNQ-r7-mwe" id="DU2-hN-ZaM"/>
                         <outlet property="currentUnitsLabel" destination="nyt-dR-DgC" id="Lbm-JC-UEG"/>
                         <outlet property="currentWeightLabel" destination="uBx-Gj-HeQ" id="CeU-Gm-eqi"/>
                         <outlet property="dateLabel" destination="FDm-3E-e5m" id="EHe-4C-W0A"/>

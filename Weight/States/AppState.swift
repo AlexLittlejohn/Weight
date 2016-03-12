@@ -13,13 +13,17 @@ import ReSwiftRouter
 struct AppState: StateType {
     var weights: [Weight]
     var navigationState: NavigationState
-    var units: Units
+    var unit: Unit
+    var captureMode: CaptureMode
+    var goal: Goal?
 }
 
 func populatedAppState() -> AppState {
     let realm = try! Realm()
     let weights = realm.objects(WeightDBO).map { $0.structValue() }
     
+    let goal = realm.objects(GoalDBO).first?.structValue() ?? nil
+    
     let action = SetRouteAction([WeightViewController.identifier])
-    return AppState(weights: weights, navigationState: NavigationReducer.handleAction(action, state: nil), units: .Kilograms)
+    return AppState(weights: weights, navigationState: NavigationReducer.handleAction(action, state: nil), unit: .Kilograms, captureMode: .Weight, goal: goal)
 }

@@ -13,3 +13,10 @@
 "units.kilograms" = "kg";
 "units.pounds" = "lbs";
 "units.stone" = "stone";
+
+"addWeightTitle" = "Add a weight";
+"addGoalTitle" = "Create a goal";
+"changeGoalTitle" = "Edit your goal";
+
+"addGoalButtonTitle" = "Create a goal";
+"changeGoalButtonTitle" = "Edit";

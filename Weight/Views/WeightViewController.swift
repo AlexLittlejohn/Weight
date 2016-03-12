@@ -14,8 +14,6 @@ class WeightViewController: UIViewController, StoreSubscriber, Routable {
 
     static let identifier = "WeightViewController"
     
-    let units = Units.Kilograms
-    
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var currentWeightLabel: UILabel!
     @IBOutlet weak var currentUnitsLabel: UILabel!
@@ -38,20 +36,14 @@ class WeightViewController: UIViewController, StoreSubscriber, Routable {
         goalTitleLabel.text = localizedString("goalTitleLabel")
         maxTitleLabel.text = localizedString("maxTitleLabel")
         minTitleLabel.text = localizedString("minTitleLabel")
-        
-        let units = localizedString("units.kilograms")
-        
-        currentUnitsLabel.text = units
-        goalUnitsLabel.text = units
-        maxUnitsLabel.text = units
-        minUnitsLabel.text = units
-        
-        let button = UIBarButtonItem(image: UIImage(named: "AddWeightIcon")!.imageWithRenderingMode(.AlwaysOriginal), style: .Plain, target: self, action: "addWeight")
-        
-        navigationItem.rightBarButtonItem = button
     }
     
     @IBAction func addWeight(sender: AnyObject) {
+        let action = SetRouteAction([WeightCaptureViewController.identifier])
+        mainStore.dispatch(action)
+    }
+    
+    @IBAction func addGoal(sender: AnyObject) {
         let action = SetRouteAction([WeightCaptureViewController.identifier])
         mainStore.dispatch(action)
     }
@@ -65,35 +57,40 @@ class WeightViewController: UIViewController, StoreSubscriber, Routable {
     }
     
     func newState(state: AppState) {
-        
-        updateCurrent(state.weights)
-        updateMaximums(state.weights)
-        updateMinimums(state.weights)
+        updateCurrent(state.weights, units: state.units)
+        updateMaximums(state.weights, units: state.units)
+        updateMinimums(state.weights, units: state.units)
+        updateUnits(state.units)
     }
     
-    func updateMinimums(weights: [Weight]) {
-        guard let element = weights.minElement({ $0.convertTo(self.units) < $1.convertTo(self.units) }) else {
+    func updateUnits(units: Units) {
+        currentUnitsLabel.text = units.description
+        goalUnitsLabel.text = units.description
+        maxUnitsLabel.text = units.description
+        minUnitsLabel.text = units.description
+    }
+    
+    func updateMinimums(weights: [Weight], units: Units) {
+        guard let element = weights.minElement({ $0.convertTo(units) < $1.convertTo(units) }) else {
             return
         }
         
-        let weight = convert(element.weight, units: element.units, targetUnits: units)
-        minLabel.text = String(format: "%.2f", weight)
+        minLabel.text = String(format: "%.2f", element.convertTo(units))
     }
     
-    func updateMaximums(weights: [Weight]) {
-        guard let element = weights.maxElement({ $0.convertTo(self.units) < $1.convertTo(self.units) }) else {
+    func updateMaximums(weights: [Weight], units: Units) {
+        guard let element = weights.maxElement({ $0.convertTo(units) < $1.convertTo(units) }) else {
             return
         }
         
-        let weight = convert(element.weight, units: element.units, targetUnits: units)
-        maxLabel.text = String(format: "%.2f", weight)
+        maxLabel.text = String(format: "%.2f", element.convertTo(units))
     }
     
     func updateGoal() {
         
     }
     
-    func updateCurrent(weights: [Weight]) {
+    func updateCurrent(weights: [Weight], units: Units) {
         guard let element = weights.maxElement({ $0.date > $1.date }) else {
             return
         }
@@ -103,8 +100,7 @@ class WeightViewController: UIViewController, StoreSubscriber, Routable {
         formatter.timeStyle = .NoStyle
         dateLabel.text = formatter.stringFromDate(element.date)
         
-        let weight = convert(element.weight, units: element.units, targetUnits: units)
-        currentWeightLabel.text = String(format: "%.2f", weight)
+        currentWeightLabel.text = String(format: "%.2f", element.convertTo(units))
 
     }
 }

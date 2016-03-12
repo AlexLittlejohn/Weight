@@ -20,7 +20,7 @@ let SaveWeightMiddleware: Middleware = { dispatch, getState in
                 let weight = addWeightAction.weight
                 weightDBO.weight = weight.weight
                 weightDBO.date = weight.date
-                weightDBO.units = weight.units.rawValue
+                weightDBO.unit = weight.unit.rawValue
                 
                 guard let realm = try? Realm() else {
                     return next(action)

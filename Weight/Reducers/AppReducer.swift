@@ -13,7 +13,10 @@ struct AppReducer: Reducer {
     func handleAction(action: Action, state: AppState?) -> AppState {
         return AppState(
             weights: weightReducer(action, weights: state?.weights),
-            navigationState: NavigationReducer.handleAction(action, state: state?.navigationState)
+            navigationState: NavigationReducer.handleAction(action, state: state?.navigationState),
+            unit: state?.unit ?? .Kilograms,
+            captureMode: captureModeReducer(action, mode: state?.captureMode),
+            goal: goalReducer(action, goal: state?.goal)
         )
     }
 }

@@ -23,6 +23,16 @@
 		C4281A751C7E23CD004FA0C9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4281A771C7E23CD004FA0C9 /* Localizable.strings */; };
 		C4281A7A1C7E29E2004FA0C9 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4281A791C7E29E2004FA0C9 /* NavigationController.swift */; };
 		C4281A861C7E2D33004FA0C9 /* RootRoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4281A851C7E2D33004FA0C9 /* RootRoutable.swift */; };
+		C43D08301C93FD6700FA875F /* CaptureMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D082F1C93FD6700FA875F /* CaptureMode.swift */; };
+		C43D08321C93FD8A00FA875F /* WeightDBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D08311C93FD8A00FA875F /* WeightDBO.swift */; };
+		C43D08341C93FDAE00FA875F /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D08331C93FDAE00FA875F /* Units.swift */; };
+		C43D08361C94104700FA875F /* AddGoalAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D08351C94104700FA875F /* AddGoalAction.swift */; };
+		C43D08381C9410F800FA875F /* SaveGoalMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D08371C9410F800FA875F /* SaveGoalMiddleware.swift */; };
+		C43D083A1C9411B300FA875F /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D08391C9411B300FA875F /* Goal.swift */; };
+		C43D083C1C9411EC00FA875F /* GoalDBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D083B1C9411EC00FA875F /* GoalDBO.swift */; };
+		C43D083E1C941C7C00FA875F /* SetCaptureModeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D083D1C941C7C00FA875F /* SetCaptureModeAction.swift */; };
+		C43D08401C941D4F00FA875F /* GoalReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D083F1C941D4F00FA875F /* GoalReducer.swift */; };
+		C43D08421C941E1D00FA875F /* CaptureModeReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D08411C941E1D00FA875F /* CaptureModeReducer.swift */; };
 		C4495AA81C918CE800CF2D5D /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4495AA71C918CE800CF2D5D /* UIColorExtensions.swift */; };
 		C47E876C1C79F91E00EE0DE4 /* AddWeightAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47E876B1C79F91E00EE0DE4 /* AddWeightAction.swift */; };
 		C47E876F1C7A002A00EE0DE4 /* SaveWeightMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47E876E1C7A002A00EE0DE4 /* SaveWeightMiddleware.swift */; };
@@ -56,6 +66,16 @@
 		C4281A781C7E23D0004FA0C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C4281A791C7E29E2004FA0C9 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		C4281A851C7E2D33004FA0C9 /* RootRoutable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootRoutable.swift; sourceTree = "<group>"; };
+		C43D082F1C93FD6700FA875F /* CaptureMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureMode.swift; sourceTree = "<group>"; };
+		C43D08311C93FD8A00FA875F /* WeightDBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightDBO.swift; sourceTree = "<group>"; };
+		C43D08331C93FDAE00FA875F /* Units.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
+		C43D08351C94104700FA875F /* AddGoalAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGoalAction.swift; sourceTree = "<group>"; };
+		C43D08371C9410F800FA875F /* SaveGoalMiddleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveGoalMiddleware.swift; sourceTree = "<group>"; };
+		C43D08391C9411B300FA875F /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
+		C43D083B1C9411EC00FA875F /* GoalDBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalDBO.swift; sourceTree = "<group>"; };
+		C43D083D1C941C7C00FA875F /* SetCaptureModeAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetCaptureModeAction.swift; sourceTree = "<group>"; };
+		C43D083F1C941D4F00FA875F /* GoalReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalReducer.swift; sourceTree = "<group>"; };
+		C43D08411C941E1D00FA875F /* CaptureModeReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureModeReducer.swift; sourceTree = "<group>"; };
 		C4495AA71C918CE800CF2D5D /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		C47E876B1C79F91E00EE0DE4 /* AddWeightAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWeightAction.swift; sourceTree = "<group>"; };
 		C47E876E1C7A002A00EE0DE4 /* SaveWeightMiddleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveWeightMiddleware.swift; sourceTree = "<group>"; };
@@ -159,6 +179,11 @@
 			isa = PBXGroup;
 			children = (
 				C40B90EC1C79B20300BA56C0 /* Weight.swift */,
+				C43D08391C9411B300FA875F /* Goal.swift */,
+				C43D08311C93FD8A00FA875F /* WeightDBO.swift */,
+				C43D083B1C9411EC00FA875F /* GoalDBO.swift */,
+				C43D082F1C93FD6700FA875F /* CaptureMode.swift */,
+				C43D08331C93FDAE00FA875F /* Units.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -167,6 +192,8 @@
 			isa = PBXGroup;
 			children = (
 				C47E876B1C79F91E00EE0DE4 /* AddWeightAction.swift */,
+				C43D08351C94104700FA875F /* AddGoalAction.swift */,
+				C43D083D1C941C7C00FA875F /* SetCaptureModeAction.swift */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -215,6 +242,8 @@
 			children = (
 				C49D9A5B1C7B933900A0656A /* AppReducer.swift */,
 				C49D9A5D1C7B93C500A0656A /* WeightReducer.swift */,
+				C43D083F1C941D4F00FA875F /* GoalReducer.swift */,
+				C43D08411C941E1D00FA875F /* CaptureModeReducer.swift */,
 			);
 			path = Reducers;
 			sourceTree = "<group>";
@@ -231,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				C47E876E1C7A002A00EE0DE4 /* SaveWeightMiddleware.swift */,
+				C43D08371C9410F800FA875F /* SaveGoalMiddleware.swift */,
 			);
 			path = Middleware;
 			sourceTree = "<group>";
@@ -414,15 +444,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C43D083C1C9411EC00FA875F /* GoalDBO.swift in Sources */,
 				C47E876F1C7A002A00EE0DE4 /* SaveWeightMiddleware.swift in Sources */,
+				C43D083E1C941C7C00FA875F /* SetCaptureModeAction.swift in Sources */,
+				C43D08341C93FDAE00FA875F /* Units.swift in Sources */,
 				C40B90E81C78E19A00BA56C0 /* WeightViewController.swift in Sources */,
+				C43D08381C9410F800FA875F /* SaveGoalMiddleware.swift in Sources */,
+				C43D08421C941E1D00FA875F /* CaptureModeReducer.swift in Sources */,
 				C47E87711C7A042E00EE0DE4 /* AppState.swift in Sources */,
 				C49D9A5C1C7B933900A0656A /* AppReducer.swift in Sources */,
 				C4DD3FBC1C80AC9600369BFA /* PickerView.swift in Sources */,
+				C43D083A1C9411B300FA875F /* Goal.swift in Sources */,
+				C43D08361C94104700FA875F /* AddGoalAction.swift in Sources */,
 				C4DD3FB91C80A48400369BFA /* WeightCaptureView.swift in Sources */,
 				C40B90D11C78CE6D00BA56C0 /* AppDelegate.swift in Sources */,
 				C406DA151C86E9A1002D2191 /* PickerItemView.swift in Sources */,
 				C4281A711C7E21F7004FA0C9 /* DateExtensions.swift in Sources */,
+				C43D08401C941D4F00FA875F /* GoalReducer.swift in Sources */,
 				C49D9A5A1C7B8EE500A0656A /* MainStore.swift in Sources */,
 				C4281A6F1C7E1C5E004FA0C9 /* StringExtensions.swift in Sources */,
 				C4281A7A1C7E29E2004FA0C9 /* NavigationController.swift in Sources */,
@@ -434,6 +472,8 @@
 				C40B90ED1C79B20300BA56C0 /* Weight.swift in Sources */,
 				C406DA181C86EC42002D2191 /* Theme.swift in Sources */,
 				C49D9A5E1C7B93C500A0656A /* WeightReducer.swift in Sources */,
+				C43D08301C93FD6700FA875F /* CaptureMode.swift in Sources */,
+				C43D08321C93FD8A00FA875F /* WeightDBO.swift in Sources */,
 				C4DAF8581C92E24E005BE419 /* Convertors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

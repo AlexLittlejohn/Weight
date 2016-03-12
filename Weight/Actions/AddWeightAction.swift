@@ -20,11 +20,11 @@ struct AddWeightAction: StandardActionConvertible {
     }
     
     init(_ standardAction: StandardAction) {
-        guard let w = standardAction.payload?["weight"] as? Double, d = standardAction.payload?["date"] as? NSDate, u = standardAction.payload?["units"] as? Int else {
+        guard let w = standardAction.payload?["weight"] as? Double, d = standardAction.payload?["date"] as? NSDate, u = standardAction.payload?["unit"] as? Int, unit = Unit(rawValue: u) else {
             fatalError("cannot init action because reasons")
         }
     
-        weight = Weight(weight: w, date: d, units: Units(rawValue: u)!)
+        weight = Weight(weight: w, date: d, unit: unit)
     }
     
     func toStandardAction() -> StandardAction {
@@ -32,7 +32,7 @@ struct AddWeightAction: StandardActionConvertible {
         let payload: [String: AnyObject] = [
             "weight": weight.weight,
             "date": weight.date,
-            "units": weight.units.rawValue
+            "unit": weight.unit.rawValue
         ]
         
         return StandardAction(type: AddWeightAction.type, payload: payload, isTypedAction: true)

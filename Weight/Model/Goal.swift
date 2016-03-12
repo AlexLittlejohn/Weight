@@ -1,20 +1,19 @@
 //
-//  Weight.swift
+//  Goal.swift
 //  Weight
 //
-//  Created by Alex Littlejohn on 2016/02/21.
+//  Created by Alex Littlejohn on 2016/03/12.
 //  Copyright © 2016 Alex Littlejohn. All rights reserved.
 //
 
 import UIKit
 
-struct Weight {
+struct Goal {
     let weight: Double
-    let date: NSDate
     let unit: Unit
 }
 
-extension Weight {
+extension Goal {
     func convertTo(toUnit: Unit) -> Double {
         return convert(weight, unit: unit, targetUnit: toUnit)
     }

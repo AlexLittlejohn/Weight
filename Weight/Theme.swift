@@ -24,8 +24,17 @@ enum Typography {
                 return UIFont(name: "HelveticaNeue-Light", size: 28)!
             }
         }
+    }
+    
+    enum NavigationBar {
+        case Title
         
-        
+        var font: UIFont {
+            switch self {
+            case .Title:
+                return UIFont(name: "HelveticaNeue-Light", size: 24)!
+            }
+        }
     }
 }
 
@@ -43,6 +52,17 @@ enum Colors {
                 return UIColor(hexString: "fff")
             case .ItemSelectedBackground:
                 return UIColor(hexString: "fff")
+            }
+        }
+    }
+    
+    enum NavigationBar {
+        case Title
+        
+        var color: UIColor {
+            switch self {
+            case .Title:
+                return UIColor(hexString: "#34495E")
             }
         }
     }

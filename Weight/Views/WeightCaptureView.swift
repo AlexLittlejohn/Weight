@@ -11,7 +11,6 @@ import UIKit
 class WeightCaptureView: UIView {
 
     var pickerView: PickerView!
-    let units = Units.Kilograms
     
     init() {
         super.init(frame: CGRect.zero)
@@ -50,18 +49,18 @@ class WeightCaptureView: UIView {
             return nil
         }
         
-        let units: Units
+        let unit: Unit
         
         switch unitString {
         case "lbs":
-            units = .Pounds
+            unit = .Pounds
         case "stone":
-            units = .Stone
+            unit = .Stone
         default:
-            units = .Kilograms
+            unit = .Kilograms
         }
         
-        let weight = Weight(weight: weightDouble, date: NSDate(), units: units)
+        let weight = Weight(weight: weightDouble, date: NSDate(), unit: unit)
         return weight
     }
     
@@ -94,7 +93,7 @@ class WeightCaptureView: UIView {
             case 3:
                 var items = [PickerItem]()
                 for i in 0..<3 {
-                    let item = PickerItem(title: "\(Units(rawValue: i)!)")
+                    let item = PickerItem(title: "\(Unit(rawValue: i)!)")
                     items.append(item)
                 }
                 let section = PickerSection(items: items, width: 70, font: Typography.PickerView.UnitItem.font, alignment: .Left)

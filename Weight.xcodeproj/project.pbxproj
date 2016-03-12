@@ -23,6 +23,9 @@
 		C4281A751C7E23CD004FA0C9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4281A771C7E23CD004FA0C9 /* Localizable.strings */; };
 		C4281A7A1C7E29E2004FA0C9 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4281A791C7E29E2004FA0C9 /* NavigationController.swift */; };
 		C4281A861C7E2D33004FA0C9 /* RootRoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4281A851C7E2D33004FA0C9 /* RootRoutable.swift */; };
+		C43D08301C93FD6700FA875F /* CaptureState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D082F1C93FD6700FA875F /* CaptureState.swift */; };
+		C43D08321C93FD8A00FA875F /* WeightDBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D08311C93FD8A00FA875F /* WeightDBO.swift */; };
+		C43D08341C93FDAE00FA875F /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D08331C93FDAE00FA875F /* Units.swift */; };
 		C4495AA81C918CE800CF2D5D /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4495AA71C918CE800CF2D5D /* UIColorExtensions.swift */; };
 		C47E876C1C79F91E00EE0DE4 /* AddWeightAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47E876B1C79F91E00EE0DE4 /* AddWeightAction.swift */; };
 		C47E876F1C7A002A00EE0DE4 /* SaveWeightMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47E876E1C7A002A00EE0DE4 /* SaveWeightMiddleware.swift */; };
@@ -56,6 +59,9 @@
 		C4281A781C7E23D0004FA0C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C4281A791C7E29E2004FA0C9 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		C4281A851C7E2D33004FA0C9 /* RootRoutable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootRoutable.swift; sourceTree = "<group>"; };
+		C43D082F1C93FD6700FA875F /* CaptureState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureState.swift; sourceTree = "<group>"; };
+		C43D08311C93FD8A00FA875F /* WeightDBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightDBO.swift; sourceTree = "<group>"; };
+		C43D08331C93FDAE00FA875F /* Units.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
 		C4495AA71C918CE800CF2D5D /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		C47E876B1C79F91E00EE0DE4 /* AddWeightAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWeightAction.swift; sourceTree = "<group>"; };
 		C47E876E1C7A002A00EE0DE4 /* SaveWeightMiddleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveWeightMiddleware.swift; sourceTree = "<group>"; };
@@ -159,6 +165,9 @@
 			isa = PBXGroup;
 			children = (
 				C40B90EC1C79B20300BA56C0 /* Weight.swift */,
+				C43D08311C93FD8A00FA875F /* WeightDBO.swift */,
+				C43D082F1C93FD6700FA875F /* CaptureState.swift */,
+				C43D08331C93FDAE00FA875F /* Units.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -415,6 +424,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C47E876F1C7A002A00EE0DE4 /* SaveWeightMiddleware.swift in Sources */,
+				C43D08341C93FDAE00FA875F /* Units.swift in Sources */,
 				C40B90E81C78E19A00BA56C0 /* WeightViewController.swift in Sources */,
 				C47E87711C7A042E00EE0DE4 /* AppState.swift in Sources */,
 				C49D9A5C1C7B933900A0656A /* AppReducer.swift in Sources */,
@@ -434,6 +444,8 @@
 				C40B90ED1C79B20300BA56C0 /* Weight.swift in Sources */,
 				C406DA181C86EC42002D2191 /* Theme.swift in Sources */,
 				C49D9A5E1C7B93C500A0656A /* WeightReducer.swift in Sources */,
+				C43D08301C93FD6700FA875F /* CaptureState.swift in Sources */,
+				C43D08321C93FD8A00FA875F /* WeightDBO.swift in Sources */,
 				C4DAF8581C92E24E005BE419 /* Convertors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

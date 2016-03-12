@@ -7,15 +7,17 @@
 //
 
 import UIKit
+import ReSwift
 import ReSwiftRouter
 
-class WeightCaptureViewController: UIViewController, Routable {
+class WeightCaptureViewController: UIViewController, StoreSubscriber, Routable {
     
     static let identifier = "WeightCaptureViewController"
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var weightPicker: WeightCaptureView!
     @IBOutlet weak var gradientView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +28,9 @@ class WeightCaptureViewController: UIViewController, Routable {
         gradient.colors = [UIColor.blackColor().CGColor, UIColor.blackColor().CGColor, UIColor.clearColor().CGColor]
         gradient.locations = [0.0, 0.65, 1.0]
         gradientView.layer.mask = gradient
+        
+        titleLabel.font = Typography.NavigationBar.Title.font
+        titleLabel.textColor = Colors.NavigationBar.Title.color
     }
         
     @IBAction func confirm(sender: AnyObject) {
@@ -43,6 +48,18 @@ class WeightCaptureViewController: UIViewController, Routable {
     @IBAction func cancel(sender: AnyObject) {
         let action = SetRouteAction([WeightViewController.identifier])
         mainStore.dispatch(action)
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        mainStore.subscribe(self)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        mainStore.unsubscribe(self)
+    }
+    
+    func newState(state: AppState) {
+        
     }
 
 }

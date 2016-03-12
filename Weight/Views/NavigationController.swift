@@ -15,10 +15,7 @@ class NavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationBar.shadowImage = UIImage()
-        navigationBar.barTintColor = .whiteColor()
-        navigationBar.translucent = false
-//        setNavigationBarHidden(true, animated: false)
+        setNavigationBarHidden(true, animated: false)
     }
 
     override func didReceiveMemoryWarning() {

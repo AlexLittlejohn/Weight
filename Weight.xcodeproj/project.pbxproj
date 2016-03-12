@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		458A254E5D3EA3253DC787EB /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0086287C88DE1A46F553612 /* Pods.framework */; };
+		C406DA151C86E9A1002D2191 /* PickerItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C406DA141C86E9A1002D2191 /* PickerItemView.swift */; };
+		C406DA181C86EC42002D2191 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C406DA171C86EC42002D2191 /* Theme.swift */; };
+		C406DA1C1C86FD08002D2191 /* PickerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C406DA1B1C86FD08002D2191 /* PickerLayout.swift */; };
 		C40B90D11C78CE6D00BA56C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40B90D01C78CE6D00BA56C0 /* AppDelegate.swift */; };
 		C40B90DA1C78CE6D00BA56C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C40B90D91C78CE6D00BA56C0 /* Assets.xcassets */; };
 		C40B90DD1C78CE6D00BA56C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C40B90DB1C78CE6D00BA56C0 /* LaunchScreen.storyboard */; };
@@ -20,17 +23,24 @@
 		C4281A751C7E23CD004FA0C9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4281A771C7E23CD004FA0C9 /* Localizable.strings */; };
 		C4281A7A1C7E29E2004FA0C9 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4281A791C7E29E2004FA0C9 /* NavigationController.swift */; };
 		C4281A861C7E2D33004FA0C9 /* RootRoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4281A851C7E2D33004FA0C9 /* RootRoutable.swift */; };
+		C4495AA81C918CE800CF2D5D /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4495AA71C918CE800CF2D5D /* UIColorExtensions.swift */; };
 		C47E876C1C79F91E00EE0DE4 /* AddWeightAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47E876B1C79F91E00EE0DE4 /* AddWeightAction.swift */; };
 		C47E876F1C7A002A00EE0DE4 /* SaveWeightMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47E876E1C7A002A00EE0DE4 /* SaveWeightMiddleware.swift */; };
 		C47E87711C7A042E00EE0DE4 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47E87701C7A042E00EE0DE4 /* AppState.swift */; };
 		C49D9A5A1C7B8EE500A0656A /* MainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49D9A591C7B8EE500A0656A /* MainStore.swift */; };
 		C49D9A5C1C7B933900A0656A /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49D9A5B1C7B933900A0656A /* AppReducer.swift */; };
 		C49D9A5E1C7B93C500A0656A /* WeightReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49D9A5D1C7B93C500A0656A /* WeightReducer.swift */; };
+		C4DAF8581C92E24E005BE419 /* Convertors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DAF8571C92E24E005BE419 /* Convertors.swift */; };
+		C4DD3FB91C80A48400369BFA /* WeightCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DD3FB81C80A48400369BFA /* WeightCaptureView.swift */; };
+		C4DD3FBC1C80AC9600369BFA /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DD3FBB1C80AC9600369BFA /* PickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		208F91AD3FBE16B98E8B5CDA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B49FC6EE8DCA7DA473DF14D1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		C406DA141C86E9A1002D2191 /* PickerItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerItemView.swift; sourceTree = "<group>"; };
+		C406DA171C86EC42002D2191 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		C406DA1B1C86FD08002D2191 /* PickerLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerLayout.swift; sourceTree = "<group>"; };
 		C40B90CD1C78CE6D00BA56C0 /* Weight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C40B90D01C78CE6D00BA56C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C40B90D91C78CE6D00BA56C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -46,12 +56,16 @@
 		C4281A781C7E23D0004FA0C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C4281A791C7E29E2004FA0C9 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		C4281A851C7E2D33004FA0C9 /* RootRoutable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootRoutable.swift; sourceTree = "<group>"; };
+		C4495AA71C918CE800CF2D5D /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		C47E876B1C79F91E00EE0DE4 /* AddWeightAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWeightAction.swift; sourceTree = "<group>"; };
 		C47E876E1C7A002A00EE0DE4 /* SaveWeightMiddleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveWeightMiddleware.swift; sourceTree = "<group>"; };
 		C47E87701C7A042E00EE0DE4 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		C49D9A591C7B8EE500A0656A /* MainStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainStore.swift; sourceTree = "<group>"; };
 		C49D9A5B1C7B933900A0656A /* AppReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
 		C49D9A5D1C7B93C500A0656A /* WeightReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightReducer.swift; sourceTree = "<group>"; };
+		C4DAF8571C92E24E005BE419 /* Convertors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convertors.swift; sourceTree = "<group>"; };
+		C4DD3FB81C80A48400369BFA /* WeightCaptureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightCaptureView.swift; sourceTree = "<group>"; };
+		C4DD3FBB1C80AC9600369BFA /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		F0086287C88DE1A46F553612 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -84,6 +98,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C406DA161C86EBEC002D2191 /* Theming */ = {
+			isa = PBXGroup;
+			children = (
+				C406DA171C86EC42002D2191 /* Theme.swift */,
+			);
+			name = Theming;
+			sourceTree = "<group>";
+		};
 		C40B90C41C78CE6D00BA56C0 = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +127,8 @@
 		C40B90CF1C78CE6D00BA56C0 /* Weight */ = {
 			isa = PBXGroup;
 			children = (
+				C4DAF8561C92E23B005BE419 /* Convertors */,
+				C406DA161C86EBEC002D2191 /* Theming */,
 				C40B90EE1C79B45D00BA56C0 /* Actions */,
 				C4281A6D1C7E1C4A004FA0C9 /* Extensions */,
 				C47E876D1C79FFC100EE0DE4 /* Middleware */,
@@ -152,6 +176,7 @@
 			children = (
 				C4281A701C7E21F7004FA0C9 /* DateExtensions.swift */,
 				C4281A6E1C7E1C5E004FA0C9 /* StringExtensions.swift */,
+				C4495AA71C918CE800CF2D5D /* UIColorExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -159,10 +184,11 @@
 		C4281A721C7E239B004FA0C9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C4281A791C7E29E2004FA0C9 /* NavigationController.swift */,
 				C40B90E91C78EE0600BA56C0 /* Storyboard.storyboard */,
-				C40B90E51C78CED600BA56C0 /* WeightCaptureViewController.swift */,
-				C40B90E71C78E19A00BA56C0 /* WeightViewController.swift */,
+				C4DD3FBA1C80AC8400369BFA /* Picker */,
+				C4C486461C7F2151004CC7F2 /* Navigation */,
+				C4C486471C7F2162004CC7F2 /* Weight */,
+				C45B57851C7F7FD500245876 /* Weight Capture */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -173,6 +199,15 @@
 				C4281A851C7E2D33004FA0C9 /* RootRoutable.swift */,
 			);
 			path = Routes;
+			sourceTree = "<group>";
+		};
+		C45B57851C7F7FD500245876 /* Weight Capture */ = {
+			isa = PBXGroup;
+			children = (
+				C40B90E51C78CED600BA56C0 /* WeightCaptureViewController.swift */,
+				C4DD3FB81C80A48400369BFA /* WeightCaptureView.swift */,
+			);
+			name = "Weight Capture";
 			sourceTree = "<group>";
 		};
 		C47E87691C79F89D00EE0DE4 /* Reducers */ = {
@@ -206,6 +241,40 @@
 				C49D9A591C7B8EE500A0656A /* MainStore.swift */,
 			);
 			path = Store;
+			sourceTree = "<group>";
+		};
+		C4C486461C7F2151004CC7F2 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				C4281A791C7E29E2004FA0C9 /* NavigationController.swift */,
+			);
+			name = Navigation;
+			sourceTree = "<group>";
+		};
+		C4C486471C7F2162004CC7F2 /* Weight */ = {
+			isa = PBXGroup;
+			children = (
+				C40B90E71C78E19A00BA56C0 /* WeightViewController.swift */,
+			);
+			name = Weight;
+			sourceTree = "<group>";
+		};
+		C4DAF8561C92E23B005BE419 /* Convertors */ = {
+			isa = PBXGroup;
+			children = (
+				C4DAF8571C92E24E005BE419 /* Convertors.swift */,
+			);
+			name = Convertors;
+			sourceTree = "<group>";
+		};
+		C4DD3FBA1C80AC8400369BFA /* Picker */ = {
+			isa = PBXGroup;
+			children = (
+				C4DD3FBB1C80AC9600369BFA /* PickerView.swift */,
+				C406DA141C86E9A1002D2191 /* PickerItemView.swift */,
+				C406DA1B1C86FD08002D2191 /* PickerLayout.swift */,
+			);
+			name = Picker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,16 +418,23 @@
 				C40B90E81C78E19A00BA56C0 /* WeightViewController.swift in Sources */,
 				C47E87711C7A042E00EE0DE4 /* AppState.swift in Sources */,
 				C49D9A5C1C7B933900A0656A /* AppReducer.swift in Sources */,
+				C4DD3FBC1C80AC9600369BFA /* PickerView.swift in Sources */,
+				C4DD3FB91C80A48400369BFA /* WeightCaptureView.swift in Sources */,
 				C40B90D11C78CE6D00BA56C0 /* AppDelegate.swift in Sources */,
+				C406DA151C86E9A1002D2191 /* PickerItemView.swift in Sources */,
 				C4281A711C7E21F7004FA0C9 /* DateExtensions.swift in Sources */,
 				C49D9A5A1C7B8EE500A0656A /* MainStore.swift in Sources */,
 				C4281A6F1C7E1C5E004FA0C9 /* StringExtensions.swift in Sources */,
 				C4281A7A1C7E29E2004FA0C9 /* NavigationController.swift in Sources */,
 				C4281A861C7E2D33004FA0C9 /* RootRoutable.swift in Sources */,
+				C406DA1C1C86FD08002D2191 /* PickerLayout.swift in Sources */,
 				C40B90E61C78CED600BA56C0 /* WeightCaptureViewController.swift in Sources */,
+				C4495AA81C918CE800CF2D5D /* UIColorExtensions.swift in Sources */,
 				C47E876C1C79F91E00EE0DE4 /* AddWeightAction.swift in Sources */,
 				C40B90ED1C79B20300BA56C0 /* Weight.swift in Sources */,
+				C406DA181C86EC42002D2191 /* Theme.swift in Sources */,
 				C49D9A5E1C7B93C500A0656A /* WeightReducer.swift in Sources */,
+				C4DAF8581C92E24E005BE419 /* Convertors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

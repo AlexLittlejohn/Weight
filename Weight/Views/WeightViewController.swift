@@ -14,6 +14,8 @@ class WeightViewController: UIViewController, StoreSubscriber, Routable {
 
     static let identifier = "WeightViewController"
     
+    let units = Units.Kilograms
+    
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var currentWeightLabel: UILabel!
     @IBOutlet weak var currentUnitsLabel: UILabel!
@@ -29,17 +31,15 @@ class WeightViewController: UIViewController, StoreSubscriber, Routable {
     @IBOutlet weak var minTitleLabel: UILabel!
     @IBOutlet weak var minLabel: UILabel!
     @IBOutlet weak var minUnitsLabel: UILabel!
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        goalTitleLabel.text = localizableString("goalTitleLabel")
-        maxTitleLabel.text = localizableString("maxTitleLabel")
-        minTitleLabel.text = localizableString("minTitleLabel")
+        goalTitleLabel.text = localizedString("goalTitleLabel")
+        maxTitleLabel.text = localizedString("maxTitleLabel")
+        minTitleLabel.text = localizedString("minTitleLabel")
         
-        let units = localizableString("units.kilograms")
+        let units = localizedString("units.kilograms")
         
         currentUnitsLabel.text = units
         goalUnitsLabel.text = units
@@ -51,7 +51,7 @@ class WeightViewController: UIViewController, StoreSubscriber, Routable {
         navigationItem.rightBarButtonItem = button
     }
     
-    func addWeight() {
+    @IBAction func addWeight(sender: AnyObject) {
         let action = SetRouteAction([WeightCaptureViewController.identifier])
         mainStore.dispatch(action)
     }
@@ -72,19 +72,21 @@ class WeightViewController: UIViewController, StoreSubscriber, Routable {
     }
     
     func updateMinimums(weights: [Weight]) {
-        guard let element = weights.minElement({ $0.weight < $1.weight }) else {
+        guard let element = weights.minElement({ $0.convertTo(self.units) < $1.convertTo(self.units) }) else {
             return
         }
         
-        minLabel.text = "\(element.weight)"
+        let weight = convert(element.weight, units: element.units, targetUnits: units)
+        minLabel.text = String(format: "%.2f", weight)
     }
     
     func updateMaximums(weights: [Weight]) {
-        guard let element = weights.maxElement({ $0.weight < $1.weight }) else {
+        guard let element = weights.maxElement({ $0.convertTo(self.units) < $1.convertTo(self.units) }) else {
             return
         }
         
-        maxLabel.text = "\(element.weight)"
+        let weight = convert(element.weight, units: element.units, targetUnits: units)
+        maxLabel.text = String(format: "%.2f", weight)
     }
     
     func updateGoal() {
@@ -96,7 +98,13 @@ class WeightViewController: UIViewController, StoreSubscriber, Routable {
             return
         }
         
-        currentWeightLabel.text = "\(element.weight)"
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = .LongStyle
+        formatter.timeStyle = .NoStyle
+        dateLabel.text = formatter.stringFromDate(element.date)
+        
+        let weight = convert(element.weight, units: element.units, targetUnits: units)
+        currentWeightLabel.text = String(format: "%.2f", weight)
 
     }
 }

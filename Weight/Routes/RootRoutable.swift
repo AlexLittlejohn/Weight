@@ -11,6 +11,9 @@ import ReSwiftRouter
 
 class RootRoutable: Routable {
     let navigationController: UINavigationController
+    let rootStoryboard = "Storyboard"
+    
+    
     init(navigationController: NavigationController) {
         self.navigationController = navigationController
     }
@@ -25,7 +28,7 @@ class RootRoutable: Routable {
             navigationController.popToViewController(viewController, animated: true)
             return viewController as! Routable
         }  else {
-            let viewController = UIStoryboard(name: "Storyboard", bundle: nil)
+            let viewController = UIStoryboard(name: rootStoryboard, bundle: nil)
                 .instantiateViewControllerWithIdentifier(WeightViewController.identifier) as! WeightViewController
             navigationController.pushViewController(viewController, animated: true)
             return viewController
@@ -42,7 +45,8 @@ class RootRoutable: Routable {
             navigationController.popToViewController(viewController, animated: true)
             return viewController as! Routable
         }  else {
-            let viewController = WeightCaptureViewController()
+            let viewController = UIStoryboard(name: rootStoryboard, bundle: nil)
+                .instantiateViewControllerWithIdentifier(WeightCaptureViewController.identifier) as! WeightCaptureViewController
             navigationController.pushViewController(viewController, animated: true)
             return viewController
         }

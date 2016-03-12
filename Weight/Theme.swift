@@ -13,17 +13,13 @@ import UIKit
 
 enum Typography {
     enum PickerView {
-        case Item, BigItem, SmallItem, UnitItem
+        case Item, UnitItem
         
         var font: UIFont {
             
             switch self {
             case .Item:
-                return UIFont(name: "HelveticaNeue-Light", size: 28)!
-            case .BigItem:
-                return UIFont(name: "HelveticaNeue-Light", size: 28)!
-            case .SmallItem:
-                return UIFont(name: "HelveticaNeue-Light", size: 28)!
+                return UIFont(name: "HelveticaNeue-Light", size: 48)!
             case .UnitItem:
                 return UIFont(name: "HelveticaNeue-Light", size: 28)!
             }

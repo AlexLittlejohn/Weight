@@ -31,7 +31,7 @@ class PickerItemView: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        label.frame = bounds.insetBy(dx: 5, dy: 5)
+        label.frame = bounds.insetBy(dx: 0, dy: 5)
     }
     
     override var selected: Bool {

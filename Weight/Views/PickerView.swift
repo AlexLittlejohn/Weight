@@ -12,6 +12,8 @@ struct PickerSection {
     let items: [PickerItem]
     var width: CGFloat = 0
     let height: CGFloat = 54
+    let font: UIFont
+    let alignment: NSTextAlignment
 }
 
 struct PickerItem {
@@ -22,8 +24,10 @@ class PickerView: UIView {
 
     let cellIdentifier = "PickerItemView"
     let sections: [PickerSection]
-    
+
     var collectionViews = [UICollectionView]()
+    
+    var selection = [Int: PickerItem]()
     
     init(sections: [PickerSection]) {
         self.sections = sections
@@ -84,7 +88,10 @@ class PickerView: UIView {
             
             let indexPath = NSIndexPath(forRow: itemIndex, inSection: 0)
             
+            
             collectionView.selectItemAtIndexPath(indexPath, animated: true, scrollPosition: .None)
+            
+            select(itemIndex, sectionIndex: sectionIndex)
         }
     }
     
@@ -113,11 +120,18 @@ class PickerView: UIView {
         return collectionViews.indexOf(collectionView)
     }
     
-    func select(idx: Int, section: Int) {
-        let section = sections[section]
-        let item = section.items[idx]
+    func select(idx: Int, sectionIndex: Int) {
+        let section = sections[sectionIndex]
+        let item: PickerItem
+        if idx >= section.items.count {
+            item = section.items.last!
+        } else if idx < 0 {
+            item = section.items[0]
+        } else {
+            item = section.items[idx]
+        }
         
-        print(item)
+        selection[sectionIndex] = item
     }
 }
 
@@ -129,9 +143,6 @@ extension PickerView: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
-        print(indexPath.row)
-        
         guard let sectionIndex = indexForView(collectionView) else {
             return
         }
@@ -159,6 +170,8 @@ extension PickerView: UICollectionViewDataSource {
         let section = sections[indexForView(collectionView)!]
         let item = section.items[indexPath.row]
         
+        cell.label.font = section.font
+        cell.label.textAlignment = section.alignment
         cell.label.text = item.title
         
         return cell

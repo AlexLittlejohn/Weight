@@ -65,20 +65,20 @@ class WeightCaptureViewController: UIViewController, StoreSubscriber, Routable {
     
     func newState(state: AppState) {
         captureMode = state.captureMode
-        configureTitle(state.captureMode)
-    }
-    
-    func configureTitle(mode: CaptureMode) {
-        titleLabel.text = title(mode)
-    }
-    
-    func title(mode: CaptureMode) -> String {
-        switch mode {
+        
+        let title: String
+        switch state.captureMode {
         case .Weight:
-            return localizedString("addWeightTitle")
+            title = localizedString("addWeightTitle")
         case .Goal:
-            return localizedString("addGoalTitle")
+            if let _ = state.goal {
+                title = localizedString("changeGoalTitle")
+            } else {
+                title = localizedString("addGoalTitle")
+            }
         }
+        
+        titleLabel.text = title
     }
     
     func action(mode: CaptureMode, weight: Weight) -> StandardActionConvertible {

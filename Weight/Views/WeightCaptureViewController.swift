@@ -13,12 +13,10 @@ import ReSwiftRouter
 class WeightCaptureViewController: UIViewController, StoreSubscriber, Routable {
     
     static let identifier = "WeightCaptureViewController"
-    @IBOutlet weak var cancelButton: UIButton!
-    @IBOutlet weak var confirmButton: UIButton!
+
     @IBOutlet weak var weightPicker: WeightCaptureView!
     @IBOutlet weak var gradientView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
-    
     
     var captureMode: CaptureMode = .Weight
     
@@ -36,6 +34,11 @@ class WeightCaptureViewController: UIViewController, StoreSubscriber, Routable {
         titleLabel.textColor = Colors.NavigationBar.Title.color
         
         view.sendSubviewToBack(weightPicker)
+    }
+    
+    @IBAction func changeDate(sender: AnyObject) {
+        let action = SetRouteAction([DateCaptureViewController.identifier])
+        mainStore.dispatch(action)
     }
         
     @IBAction func confirm(sender: AnyObject) {

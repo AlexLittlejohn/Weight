@@ -34,6 +34,9 @@
 		C43D08401C941D4F00FA875F /* GoalReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D083F1C941D4F00FA875F /* GoalReducer.swift */; };
 		C43D08421C941E1D00FA875F /* CaptureModeReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D08411C941E1D00FA875F /* CaptureModeReducer.swift */; };
 		C4495AA81C918CE800CF2D5D /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4495AA71C918CE800CF2D5D /* UIColorExtensions.swift */; };
+		C46C6C751C9B2E35000814AB /* DateCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C6C741C9B2E35000814AB /* DateCaptureViewController.swift */; };
+		C46C6C771C9B3B89000814AB /* SetDateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C6C761C9B3B89000814AB /* SetDateAction.swift */; };
+		C46C6C791C9B3CD9000814AB /* CaptureDateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C6C781C9B3CD9000814AB /* CaptureDateReducer.swift */; };
 		C47E876C1C79F91E00EE0DE4 /* AddWeightAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47E876B1C79F91E00EE0DE4 /* AddWeightAction.swift */; };
 		C47E876F1C7A002A00EE0DE4 /* SaveWeightMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47E876E1C7A002A00EE0DE4 /* SaveWeightMiddleware.swift */; };
 		C47E87711C7A042E00EE0DE4 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47E87701C7A042E00EE0DE4 /* AppState.swift */; };
@@ -77,6 +80,9 @@
 		C43D083F1C941D4F00FA875F /* GoalReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalReducer.swift; sourceTree = "<group>"; };
 		C43D08411C941E1D00FA875F /* CaptureModeReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureModeReducer.swift; sourceTree = "<group>"; };
 		C4495AA71C918CE800CF2D5D /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		C46C6C741C9B2E35000814AB /* DateCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCaptureViewController.swift; sourceTree = "<group>"; };
+		C46C6C761C9B3B89000814AB /* SetDateAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetDateAction.swift; sourceTree = "<group>"; };
+		C46C6C781C9B3CD9000814AB /* CaptureDateReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureDateReducer.swift; sourceTree = "<group>"; };
 		C47E876B1C79F91E00EE0DE4 /* AddWeightAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWeightAction.swift; sourceTree = "<group>"; };
 		C47E876E1C7A002A00EE0DE4 /* SaveWeightMiddleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveWeightMiddleware.swift; sourceTree = "<group>"; };
 		C47E87701C7A042E00EE0DE4 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -194,6 +200,7 @@
 				C47E876B1C79F91E00EE0DE4 /* AddWeightAction.swift */,
 				C43D08351C94104700FA875F /* AddGoalAction.swift */,
 				C43D083D1C941C7C00FA875F /* SetCaptureModeAction.swift */,
+				C46C6C761C9B3B89000814AB /* SetDateAction.swift */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -214,6 +221,7 @@
 				C40B90E91C78EE0600BA56C0 /* Storyboard.storyboard */,
 				C4DD3FBA1C80AC8400369BFA /* Picker */,
 				C4C486461C7F2151004CC7F2 /* Navigation */,
+				C46C6C731C9B2DD3000814AB /* Date Capture */,
 				C4C486471C7F2162004CC7F2 /* Weight */,
 				C45B57851C7F7FD500245876 /* Weight Capture */,
 			);
@@ -237,6 +245,14 @@
 			name = "Weight Capture";
 			sourceTree = "<group>";
 		};
+		C46C6C731C9B2DD3000814AB /* Date Capture */ = {
+			isa = PBXGroup;
+			children = (
+				C46C6C741C9B2E35000814AB /* DateCaptureViewController.swift */,
+			);
+			name = "Date Capture";
+			sourceTree = "<group>";
+		};
 		C47E87691C79F89D00EE0DE4 /* Reducers */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +260,7 @@
 				C49D9A5D1C7B93C500A0656A /* WeightReducer.swift */,
 				C43D083F1C941D4F00FA875F /* GoalReducer.swift */,
 				C43D08411C941E1D00FA875F /* CaptureModeReducer.swift */,
+				C46C6C781C9B3CD9000814AB /* CaptureDateReducer.swift */,
 			);
 			path = Reducers;
 			sourceTree = "<group>";
@@ -449,14 +466,17 @@
 				C43D083E1C941C7C00FA875F /* SetCaptureModeAction.swift in Sources */,
 				C43D08341C93FDAE00FA875F /* Units.swift in Sources */,
 				C40B90E81C78E19A00BA56C0 /* WeightViewController.swift in Sources */,
+				C46C6C791C9B3CD9000814AB /* CaptureDateReducer.swift in Sources */,
 				C43D08381C9410F800FA875F /* SaveGoalMiddleware.swift in Sources */,
 				C43D08421C941E1D00FA875F /* CaptureModeReducer.swift in Sources */,
 				C47E87711C7A042E00EE0DE4 /* AppState.swift in Sources */,
 				C49D9A5C1C7B933900A0656A /* AppReducer.swift in Sources */,
 				C4DD3FBC1C80AC9600369BFA /* PickerView.swift in Sources */,
 				C43D083A1C9411B300FA875F /* Goal.swift in Sources */,
+				C46C6C751C9B2E35000814AB /* DateCaptureViewController.swift in Sources */,
 				C43D08361C94104700FA875F /* AddGoalAction.swift in Sources */,
 				C4DD3FB91C80A48400369BFA /* WeightCaptureView.swift in Sources */,
+				C46C6C771C9B3B89000814AB /* SetDateAction.swift in Sources */,
 				C40B90D11C78CE6D00BA56C0 /* AppDelegate.swift in Sources */,
 				C406DA151C86E9A1002D2191 /* PickerItemView.swift in Sources */,
 				C4281A711C7E21F7004FA0C9 /* DateExtensions.swift in Sources */,

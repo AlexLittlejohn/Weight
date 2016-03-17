@@ -16,6 +16,7 @@ struct AppReducer: Reducer {
             navigationState: NavigationReducer.handleAction(action, state: state?.navigationState),
             unit: state?.unit ?? .Kilograms,
             captureMode: captureModeReducer(action, mode: state?.captureMode),
+            captureDate: captureDateReducer(action, date: state?.captureDate),
             goal: goalReducer(action, goal: state?.goal)
         )
     }

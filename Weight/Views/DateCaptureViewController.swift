@@ -7,35 +7,31 @@
 //
 
 import UIKit
-import CVCalendar
 import ReSwift
 import ReSwiftRouter
+import RSDayFlow
 
 class DateCaptureViewController: UIViewController, Routable {
     
     static let identifier = "DateCaptureViewController"
 
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var menuView: CVCalendarMenuView!
-    @IBOutlet weak var calendarView: CVCalendarView!
-        
+
+    @IBOutlet weak var calendarView: RSDFDatePickerView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         titleLabel.font = Typography.NavigationBar.Title.font
         titleLabel.textColor = Colors.NavigationBar.Title.color
         
-        calendarView.calendarDelegate = self
-        menuView.menuViewDelegate = self
+        calendarView.delegate = self
+        calendarView.pagingEnabled = true
     }
     
     @IBAction func confirm(sender: AnyObject) {
-        
-        let dateAction = SetDateAction(date: calendarView.manager.currentDate)
-        let navigateAction = SetRouteAction([WeightCaptureViewController.identifier])
-        
-        mainStore.dispatch(dateAction)
-        mainStore.dispatch(navigateAction)
+        let action = SetRouteAction([WeightCaptureViewController.identifier])
+        mainStore.dispatch(action)
     }
     
     @IBAction func cancel(sender: AnyObject) {
@@ -43,24 +39,27 @@ class DateCaptureViewController: UIViewController, Routable {
         mainStore.dispatch(action)
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    @IBAction func scrollToToday(sender: AnyObject) {
+        calendarView.scrollToToday(true)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        calendarView.selectDate(NSDate())
+    }
+}
+
+extension DateCaptureViewController: RSDFDatePickerViewDelegate {
+    func datePickerView(view: RSDFDatePickerView!, shouldSelectDate date: NSDate!) -> Bool {
+        return NSDate().compare(date) == NSComparisonResult.OrderedDescending
+    }
+    
+    func datePickerView(view: RSDFDatePickerView!, didSelectDate date: NSDate!) {
+        guard let date = date else {
+            return
+        }
         
-        calendarView.commitCalendarViewUpdate()
-        menuView.commitMenuViewUpdate()
+        let action = SetDateAction(date: date)
+        mainStore.dispatch(action)
     }
-}
-
-extension DateCaptureViewController: CVCalendarViewDelegate {
-    func presentationMode() -> CalendarMode {
-        return .MonthView
-    }
-    
-    func firstWeekday() -> Weekday {
-        return .Sunday
-    }
-}
-
-extension DateCaptureViewController: CVCalendarMenuViewDelegate {
-    
 }

@@ -17,8 +17,10 @@ class WeightCaptureViewController: UIViewController, StoreSubscriber, Routable {
     @IBOutlet weak var weightPicker: WeightCaptureView!
     @IBOutlet weak var gradientView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     var captureMode: CaptureMode = .Weight
+    var captureDate = NSDate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +35,9 @@ class WeightCaptureViewController: UIViewController, StoreSubscriber, Routable {
         titleLabel.font = Typography.NavigationBar.Title.font
         titleLabel.textColor = Colors.NavigationBar.Title.color
         
+        dateLabel.font = Typography.DateButton.Title.font
+        dateLabel.textColor = Colors.DateButton.Title.color
+        
         view.sendSubviewToBack(weightPicker)
     }
     
@@ -46,7 +51,7 @@ class WeightCaptureViewController: UIViewController, StoreSubscriber, Routable {
             return
         }
         
-        let addAction = action(captureMode, weight: weight)
+        let addAction = action(captureMode, weight: weight, date: captureDate)
         let navigateAction = SetRouteAction([WeightViewController.identifier])
         
         mainStore.dispatch(addAction)
@@ -82,14 +87,24 @@ class WeightCaptureViewController: UIViewController, StoreSubscriber, Routable {
         }
         
         titleLabel.text = title
+        
+        captureDate = state.captureDate
+        
+        let date = state.captureDate
+        
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "dd MMM"
+        
+        dateLabel.text = formatter.stringFromDate(date)
     }
     
-    func action(mode: CaptureMode, weight: Weight) -> StandardActionConvertible {
+    func action(mode: CaptureMode, weight: Weight, date: NSDate) -> StandardActionConvertible {
         if mode == .Goal {
             let goal = Goal(weight: weight.weight, unit:  weight.unit)
             return AddGoalAction(goal: goal)
         } else {
-            return AddWeightAction(weight: weight)
+            let w = Weight(weight: weight.weight, date: date, unit: weight.unit)
+            return AddWeightAction(weight: w)
         }
     }
 }

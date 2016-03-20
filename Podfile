@@ -4,3 +4,4 @@ use_frameworks!
 pod 'RealmSwift'
 pod 'ReSwift'
 pod 'ReSwiftRouter'
+pod 'RSDayFlow'

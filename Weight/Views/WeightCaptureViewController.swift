@@ -13,14 +13,11 @@ import ReSwiftRouter
 class WeightCaptureViewController: UIViewController, StoreSubscriber, Routable {
     
     static let identifier = "WeightCaptureViewController"
-    @IBOutlet weak var cancelButton: UIButton!
-    @IBOutlet weak var confirmButton: UIButton!
+
     @IBOutlet weak var weightPicker: WeightCaptureView!
     @IBOutlet weak var gradientView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
-    
-    
-    var captureMode: CaptureMode = .Weight
+    @IBOutlet weak var dateLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +32,15 @@ class WeightCaptureViewController: UIViewController, StoreSubscriber, Routable {
         titleLabel.font = Typography.NavigationBar.Title.font
         titleLabel.textColor = Colors.NavigationBar.Title.color
         
+        dateLabel.font = Typography.DateButton.Title.font
+        dateLabel.textColor = Colors.DateButton.Title.color
+        
         view.sendSubviewToBack(weightPicker)
+    }
+    
+    @IBAction func changeDate(sender: AnyObject) {
+        let action = SetRouteAction([DateCaptureViewController.identifier])
+        mainStore.dispatch(action)
     }
         
     @IBAction func confirm(sender: AnyObject) {
@@ -43,7 +48,9 @@ class WeightCaptureViewController: UIViewController, StoreSubscriber, Routable {
             return
         }
         
-        let addAction = action(captureMode, weight: weight)
+        let date = mainStore.state?.captureDate ?? NSDate()
+        let mode = mainStore.state?.captureMode ?? .Weight
+        let addAction = action(mode, weight: weight, date: date)
         let navigateAction = SetRouteAction([WeightViewController.identifier])
         
         mainStore.dispatch(addAction)
@@ -64,29 +71,40 @@ class WeightCaptureViewController: UIViewController, StoreSubscriber, Routable {
     }
     
     func newState(state: AppState) {
-        captureMode = state.captureMode
-        configureTitle(state.captureMode)
+        configureTitle(state.captureMode, goal: state.goal != nil)
+        configureDate(state.captureDate)
     }
     
-    func configureTitle(mode: CaptureMode) {
-        titleLabel.text = title(mode)
-    }
-    
-    func title(mode: CaptureMode) -> String {
-        switch mode {
-        case .Weight:
-            return localizedString("addWeightTitle")
-        case .Goal:
-            return localizedString("addGoalTitle")
-        }
-    }
-    
-    func action(mode: CaptureMode, weight: Weight) -> StandardActionConvertible {
+    func action(mode: CaptureMode, weight: Weight, date: NSDate) -> StandardActionConvertible {
         if mode == .Goal {
             let goal = Goal(weight: weight.weight, unit:  weight.unit)
             return AddGoalAction(goal: goal)
         } else {
-            return AddWeightAction(weight: weight)
+            let w = Weight(weight: weight.weight, date: date, unit: weight.unit)
+            return AddWeightAction(weight: w)
         }
+    }
+    
+    func configureTitle(mode: CaptureMode, goal: Bool) {
+        let title: String
+        switch mode {
+        case .Weight:
+            title = localizedString("addWeightTitle")
+        case .Goal:
+            if goal {
+                title = localizedString("changeGoalTitle")
+            } else {
+                title = localizedString("addGoalTitle")
+            }
+        }
+        
+        titleLabel.text = title
+    }
+    
+    func configureDate(date: NSDate) {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "dd MMM"
+        
+        dateLabel.text = formatter.stringFromDate(date)
     }
 }

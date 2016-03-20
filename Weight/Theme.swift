@@ -36,6 +36,17 @@ enum Typography {
             }
         }
     }
+
+    enum DateButton {
+        case Title
+        
+        var font: UIFont {
+            switch self {
+            case .Title:
+                return UIFont(name: "HelveticaNeue-Light", size: 16)!
+            }
+        }
+    }
 }
 
 enum Colors {
@@ -57,6 +68,17 @@ enum Colors {
     }
     
     enum NavigationBar {
+        case Title
+        
+        var color: UIColor {
+            switch self {
+            case .Title:
+                return UIColor(hexString: "#34495E")
+            }
+        }
+    }
+    
+    enum DateButton {
         case Title
         
         var color: UIColor {

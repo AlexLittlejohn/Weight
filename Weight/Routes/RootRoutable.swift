@@ -52,6 +52,23 @@ class RootRoutable: Routable {
         }
     }
     
+    func setToDateCaptureViewController() -> Routable {
+        
+        guard !(navigationController.topViewController is DateCaptureViewController) else {
+            return navigationController.topViewController as! Routable
+        }
+        
+        if let viewController = navigationController.viewControllers.filter({ $0 is DateCaptureViewController }).first {
+            navigationController.popToViewController(viewController, animated: true)
+            return viewController as! Routable
+        }  else {
+            let viewController = UIStoryboard(name: rootStoryboard, bundle: nil)
+                .instantiateViewControllerWithIdentifier(DateCaptureViewController.identifier) as! DateCaptureViewController
+            navigationController.pushViewController(viewController, animated: true)
+            return viewController
+        }
+    }
+    
     func changeRouteSegment(from: RouteElementIdentifier, to: RouteElementIdentifier, completionHandler: RoutingCompletionHandler) -> Routable {
         
         if to == WeightViewController.identifier {
@@ -60,6 +77,9 @@ class RootRoutable: Routable {
         } else if to == WeightCaptureViewController.identifier {
             completionHandler()
             return setToWeightCaptureViewController()
+        } else if to == DateCaptureViewController.identifier {
+            completionHandler()
+            return setToDateCaptureViewController()
         } else {
             fatalError("no valid routes")
         }
@@ -73,6 +93,9 @@ class RootRoutable: Routable {
         } else if routeElementIdentifier == WeightCaptureViewController.identifier {
             completionHandler()
             return setToWeightCaptureViewController()
+        } else if routeElementIdentifier == DateCaptureViewController.identifier {
+            completionHandler()
+            return setToDateCaptureViewController()
         } else {
             fatalError("no valid routes")
         }

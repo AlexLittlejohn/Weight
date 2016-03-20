@@ -73,29 +73,10 @@ class WeightCaptureViewController: UIViewController, StoreSubscriber, Routable {
     
     func newState(state: AppState) {
         captureMode = state.captureMode
-        
-        let title: String
-        switch state.captureMode {
-        case .Weight:
-            title = localizedString("addWeightTitle")
-        case .Goal:
-            if let _ = state.goal {
-                title = localizedString("changeGoalTitle")
-            } else {
-                title = localizedString("addGoalTitle")
-            }
-        }
-        
-        titleLabel.text = title
-        
         captureDate = state.captureDate
         
-        let date = state.captureDate
-        
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "dd MMM"
-        
-        dateLabel.text = formatter.stringFromDate(date)
+        configureTitle(captureMode, goal: state.goal != nil)
+        configureDate(captureDate)
     }
     
     func action(mode: CaptureMode, weight: Weight, date: NSDate) -> StandardActionConvertible {
@@ -106,5 +87,28 @@ class WeightCaptureViewController: UIViewController, StoreSubscriber, Routable {
             let w = Weight(weight: weight.weight, date: date, unit: weight.unit)
             return AddWeightAction(weight: w)
         }
+    }
+    
+    func configureTitle(mode: CaptureMode, goal: Bool) {
+        let title: String
+        switch mode {
+        case .Weight:
+            title = localizedString("addWeightTitle")
+        case .Goal:
+            if goal {
+                title = localizedString("changeGoalTitle")
+            } else {
+                title = localizedString("addGoalTitle")
+            }
+        }
+        
+        titleLabel.text = title
+    }
+    
+    func configureDate(date: NSDate) {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "dd MMM"
+        
+        dateLabel.text = formatter.stringFromDate(date)
     }
 }

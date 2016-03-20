@@ -41,8 +41,10 @@ class WeightViewController: UIViewController, StoreSubscriber, Routable {
     
     @IBAction func addWeight(sender: AnyObject) {
         let modeAction = SetCaptureModeAction(mode: .Weight)
+        let dateAction = SetDateAction(date: NSDate())
         let navigateAction = SetRouteAction([WeightCaptureViewController.identifier])
         mainStore.dispatch(modeAction)
+        mainStore.dispatch(dateAction)
         mainStore.dispatch(navigateAction)
     }
     

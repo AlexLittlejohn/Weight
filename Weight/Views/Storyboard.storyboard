@@ -185,11 +185,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h8s-Tq-BUi" customClass="WeightCaptureView" customModule="Weight" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tvp-Yh-zCi">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3a2-9O-q8i">
-                                        <rect key="frame" x="92" y="46" width="416" height="20.5"/>
+                                        <rect key="frame" x="99" y="42" width="402" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -201,57 +205,173 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3x-HA-fDO">
-                                <rect key="frame" x="40" y="40" width="32" height="32"/>
+                                <rect key="frame" x="35" y="30" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="YTx-u5-BEU"/>
+                                    <constraint firstAttribute="height" constant="44" id="ZYB-Xm-Wdr"/>
+                                </constraints>
                                 <state key="normal" image="NavigateCancel"/>
                                 <connections>
                                     <action selector="cancel:" destination="54X-lT-aRL" eventType="touchUpInside" id="LlV-97-jhP"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Idm-mM-Esu">
-                                <rect key="frame" x="528" y="40" width="32" height="32"/>
+                                <rect key="frame" x="521" y="30" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="GH9-qs-BKK"/>
+                                    <constraint firstAttribute="height" constant="44" id="fO0-xz-i00"/>
+                                </constraints>
                                 <state key="normal" image="NavigateConfirm"/>
                                 <connections>
                                     <action selector="confirm:" destination="54X-lT-aRL" eventType="touchUpInside" id="28W-Gu-UTK"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h8s-Tq-BUi" customClass="WeightCaptureView" customModule="Weight" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SGD-O2-cLt">
+                                <rect key="frame" x="473.5" y="489" width="91.5" height="75.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello worl" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xjv-ac-BE4">
+                                        <rect key="frame" x="8" y="47" width="75.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Calender" translatesAutoresizingMaskIntoConstraints="NO" id="XSY-nb-wTj">
+                                        <rect key="frame" x="30" y="8" width="32" height="32"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="XSY-nb-wTj" firstAttribute="top" secondItem="SGD-O2-cLt" secondAttribute="top" constant="8" id="Di4-V2-W6s"/>
+                                    <constraint firstAttribute="bottom" secondItem="Xjv-ac-BE4" secondAttribute="bottom" constant="8" id="ETb-MY-7m6"/>
+                                    <constraint firstItem="Xjv-ac-BE4" firstAttribute="leading" secondItem="SGD-O2-cLt" secondAttribute="leading" constant="8" id="JDn-mM-Kcj"/>
+                                    <constraint firstItem="XSY-nb-wTj" firstAttribute="centerX" secondItem="SGD-O2-cLt" secondAttribute="centerX" id="LqN-Ul-xQi"/>
+                                    <constraint firstItem="Xjv-ac-BE4" firstAttribute="top" secondItem="XSY-nb-wTj" secondAttribute="bottom" constant="7" id="T1t-eV-3fE"/>
+                                    <constraint firstAttribute="trailing" secondItem="Xjv-ac-BE4" secondAttribute="trailing" constant="8" id="f75-Tm-czW"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="RQ9-ps-3kf" appends="YES" id="L5g-jH-yfK"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="h8s-Tq-BUi" secondAttribute="trailing" id="2GP-ug-r2N"/>
-                            <constraint firstItem="a3x-HA-fDO" firstAttribute="top" secondItem="Va5-du-Q29" secondAttribute="bottom" constant="20" id="7aA-rt-xzU"/>
+                            <constraint firstItem="a3x-HA-fDO" firstAttribute="top" secondItem="Va5-du-Q29" secondAttribute="bottom" constant="10" id="7aA-rt-xzU"/>
                             <constraint firstItem="3a2-9O-q8i" firstAttribute="leading" secondItem="a3x-HA-fDO" secondAttribute="trailing" constant="20" id="7iG-uL-DZA"/>
                             <constraint firstAttribute="trailing" secondItem="tvp-Yh-zCi" secondAttribute="trailing" id="C2D-MF-v6L"/>
-                            <constraint firstItem="a3x-HA-fDO" firstAttribute="leading" secondItem="Hrj-ak-jwF" secondAttribute="leadingMargin" constant="20" id="Crp-zT-cgi"/>
+                            <constraint firstItem="a3x-HA-fDO" firstAttribute="leading" secondItem="Hrj-ak-jwF" secondAttribute="leadingMargin" constant="15" id="Crp-zT-cgi"/>
                             <constraint firstItem="Idm-mM-Esu" firstAttribute="leading" secondItem="3a2-9O-q8i" secondAttribute="trailing" constant="20" id="Dh5-XQ-25c"/>
                             <constraint firstItem="h8s-Tq-BUi" firstAttribute="top" secondItem="Va5-du-Q29" secondAttribute="bottom" constant="-20" id="N8N-pL-mdz"/>
                             <constraint firstItem="3a2-9O-q8i" firstAttribute="centerY" secondItem="a3x-HA-fDO" secondAttribute="centerY" id="T8K-kv-guQ"/>
                             <constraint firstItem="nZv-qj-Pu6" firstAttribute="top" secondItem="h8s-Tq-BUi" secondAttribute="bottom" id="fQX-Cu-9eS"/>
                             <constraint firstItem="tvp-Yh-zCi" firstAttribute="leading" secondItem="Hrj-ak-jwF" secondAttribute="leading" id="g7a-h0-xce"/>
                             <constraint firstItem="h8s-Tq-BUi" firstAttribute="leading" secondItem="Hrj-ak-jwF" secondAttribute="leading" id="g8M-wb-Y0R"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Idm-mM-Esu" secondAttribute="trailing" constant="20" id="jnk-Bu-Mvf"/>
-                            <constraint firstItem="Idm-mM-Esu" firstAttribute="top" secondItem="Va5-du-Q29" secondAttribute="bottom" constant="20" id="v9f-fg-zDY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Idm-mM-Esu" secondAttribute="trailing" constant="15" id="jnk-Bu-Mvf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SGD-O2-cLt" secondAttribute="trailing" constant="15" id="tsa-5e-GLg"/>
+                            <constraint firstItem="nZv-qj-Pu6" firstAttribute="top" secondItem="SGD-O2-cLt" secondAttribute="bottom" constant="35" id="ujf-iM-mkJ"/>
+                            <constraint firstItem="Idm-mM-Esu" firstAttribute="top" secondItem="Va5-du-Q29" secondAttribute="bottom" constant="10" id="v9f-fg-zDY"/>
                             <constraint firstItem="tvp-Yh-zCi" firstAttribute="top" secondItem="Va5-du-Q29" secondAttribute="bottom" constant="-20" id="wGg-ge-n1E"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="cancelButton" destination="a3x-HA-fDO" id="tMD-JA-iKG"/>
-                        <outlet property="confirmButton" destination="Idm-mM-Esu" id="61e-IR-MIb"/>
+                        <outlet property="dateLabel" destination="Xjv-ac-BE4" id="K0U-Xs-W3d"/>
                         <outlet property="gradientView" destination="tvp-Yh-zCi" id="bOW-4V-W8q"/>
                         <outlet property="titleLabel" destination="3a2-9O-q8i" id="Uuh-jk-ay6"/>
                         <outlet property="weightPicker" destination="h8s-Tq-BUi" id="379-JN-1tW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QlQ-Zl-a1j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="RQ9-ps-3kf">
+                    <connections>
+                        <action selector="changeDate:" destination="54X-lT-aRL" id="bF2-o3-XIe"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1106" y="437"/>
+        </scene>
+        <!--Date Capture View Controller-->
+        <scene sceneID="dBF-gv-Ugv">
+            <objects>
+                <viewController storyboardIdentifier="DateCaptureViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ewf-mb-6Bk" customClass="DateCaptureViewController" customModule="Weight" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JCG-C3-HzD"/>
+                        <viewControllerLayoutGuide type="bottom" id="icA-xf-PyZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CYb-eG-K2g">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jMM-5S-Dab" customClass="RSDFDatePickerView">
+                                <rect key="frame" x="0.0" y="92" width="600" height="508"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FEb-dK-NXK">
+                                <rect key="frame" x="35" y="30" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="Pw2-Mn-p3U"/>
+                                    <constraint firstAttribute="height" constant="44" id="zqM-6i-7qr"/>
+                                </constraints>
+                                <state key="normal" image="NavigateCancel"/>
+                                <connections>
+                                    <action selector="cancel:" destination="ewf-mb-6Bk" eventType="touchUpInside" id="sXg-cg-97T"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ipn-5Y-rS4">
+                                <rect key="frame" x="520" y="30" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="aro-B0-RV9"/>
+                                    <constraint firstAttribute="height" constant="44" id="hda-mW-6si"/>
+                                </constraints>
+                                <state key="normal" image="NavigateConfirm"/>
+                                <connections>
+                                    <action selector="confirm:" destination="ewf-mb-6Bk" eventType="touchUpInside" id="BVb-NH-3BE"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change the date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTk-Ci-Smv">
+                                <rect key="frame" x="99" y="41.5" width="401" height="20.5"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Z5j-nD-94L" appends="YES" id="WLF-U5-3Xu"/>
+                                </connections>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MTk-Ci-Smv" firstAttribute="centerY" secondItem="FEb-dK-NXK" secondAttribute="centerY" id="1aK-RK-e9D"/>
+                            <constraint firstItem="jMM-5S-Dab" firstAttribute="leading" secondItem="CYb-eG-K2g" secondAttribute="leading" id="9aE-MC-Cnb"/>
+                            <constraint firstItem="MTk-Ci-Smv" firstAttribute="leading" secondItem="FEb-dK-NXK" secondAttribute="trailing" constant="20" id="ImT-yc-zVf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ipn-5Y-rS4" secondAttribute="trailing" constant="16" id="KoK-9Q-GT2"/>
+                            <constraint firstItem="FEb-dK-NXK" firstAttribute="top" secondItem="JCG-C3-HzD" secondAttribute="bottom" constant="10" id="V49-ql-yWu"/>
+                            <constraint firstAttribute="trailing" secondItem="jMM-5S-Dab" secondAttribute="trailing" id="a41-1H-Tco"/>
+                            <constraint firstItem="jMM-5S-Dab" firstAttribute="top" secondItem="MTk-Ci-Smv" secondAttribute="bottom" constant="30" id="cII-2c-pYv"/>
+                            <constraint firstItem="FEb-dK-NXK" firstAttribute="leading" secondItem="CYb-eG-K2g" secondAttribute="leadingMargin" constant="15" id="g4s-nb-bFe"/>
+                            <constraint firstItem="icA-xf-PyZ" firstAttribute="top" secondItem="jMM-5S-Dab" secondAttribute="bottom" id="mLC-3s-i9v"/>
+                            <constraint firstItem="ipn-5Y-rS4" firstAttribute="top" secondItem="JCG-C3-HzD" secondAttribute="bottom" constant="10" id="pa5-Qa-EGv"/>
+                            <constraint firstItem="ipn-5Y-rS4" firstAttribute="leading" secondItem="MTk-Ci-Smv" secondAttribute="trailing" constant="20" id="zdJ-jz-MCH"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="calendarView" destination="jMM-5S-Dab" id="pMG-AW-mj2"/>
+                        <outlet property="titleLabel" destination="MTk-Ci-Smv" id="u4G-pz-TKx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O1l-gg-obT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="Z5j-nD-94L">
+                    <connections>
+                        <action selector="scrollToToday:" destination="ewf-mb-6Bk" id="e3f-zz-0TO"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="838" y="1144"/>
         </scene>
     </scenes>
     <resources>
         <image name="AddWeightIcon" width="32" height="32"/>
+        <image name="Calender" width="32" height="32"/>
         <image name="NavigateCancel" width="32" height="32"/>
         <image name="NavigateConfirm" width="32" height="32"/>
     </resources>

@@ -1,22 +1,25 @@
 PODS:
-  - Realm (0.98.2):
-    - Realm/Headers (= 0.98.2)
-  - Realm/Headers (0.98.2)
-  - RealmSwift (0.98.2):
-    - Realm (= 0.98.2)
+  - Realm (0.98.5):
+    - Realm/Headers (= 0.98.5)
+  - Realm/Headers (0.98.5)
+  - RealmSwift (0.98.5):
+    - Realm (= 0.98.5)
   - ReSwift (0.2.5)
   - ReSwiftRouter (0.2.5):
     - ReSwift (= 0.2.5)
+  - RSDayFlow (1.4.0)
 
 DEPENDENCIES:
   - RealmSwift
   - ReSwift
   - ReSwiftRouter
+  - RSDayFlow
 
 SPEC CHECKSUMS:
-  Realm: 88a147fe04b8f07191a676b15c779b2b448991de
-  RealmSwift: 9907c7415b3e19ef2ab9f89878fc890f03f93aea
+  Realm: db08379969e45cea2edd1c3c0a090fe9e22d2d2f
+  RealmSwift: cb11ad1c35e15dc982f2dbf5afe2a3124193a358
   ReSwift: 0c7e65229f1457f13ed6be35342c1295df9bf9d9
   ReSwiftRouter: d132a671bccf11958c31c0898547e06145d2614d
+  RSDayFlow: 5ed0506f67c19de74078d7ec7d7d4f8ead7b6efb
 
 COCOAPODS: 0.39.0

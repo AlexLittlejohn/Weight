@@ -19,9 +19,6 @@ class WeightCaptureViewController: UIViewController, StoreSubscriber, Routable {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
-    var captureMode: CaptureMode = .Weight
-    var captureDate = NSDate()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,7 +48,9 @@ class WeightCaptureViewController: UIViewController, StoreSubscriber, Routable {
             return
         }
         
-        let addAction = action(captureMode, weight: weight, date: captureDate)
+        let date = mainStore.state?.captureDate ?? NSDate()
+        let mode = mainStore.state?.captureMode ?? .Weight
+        let addAction = action(mode, weight: weight, date: date)
         let navigateAction = SetRouteAction([WeightViewController.identifier])
         
         mainStore.dispatch(addAction)
@@ -72,11 +71,8 @@ class WeightCaptureViewController: UIViewController, StoreSubscriber, Routable {
     }
     
     func newState(state: AppState) {
-        captureMode = state.captureMode
-        captureDate = state.captureDate
-        
-        configureTitle(captureMode, goal: state.goal != nil)
-        configureDate(captureDate)
+        configureTitle(state.captureMode, goal: state.goal != nil)
+        configureDate(state.captureDate)
     }
     
     func action(mode: CaptureMode, weight: Weight, date: NSDate) -> StandardActionConvertible {

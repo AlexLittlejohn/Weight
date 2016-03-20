@@ -16,7 +16,6 @@ class DateCaptureViewController: UIViewController, Routable {
     static let identifier = "DateCaptureViewController"
 
     @IBOutlet weak var titleLabel: UILabel!
-
     @IBOutlet weak var calendarView: RSDFDatePickerView!
     
     override func viewDidLoad() {

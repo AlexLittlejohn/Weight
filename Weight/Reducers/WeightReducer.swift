@@ -16,6 +16,9 @@ func weightReducer(action: Action, weights: [Weight]?) -> [Weight] {
     switch action {
     case let action as AddWeightAction:
         _weights.append(action.weight)
+        _weights.sortInPlace({ (w1, w2) -> Bool in
+            return w1.date > w2.date
+        })
     default:
         break
     }

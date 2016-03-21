@@ -1,25 +1,28 @@
 PODS:
+  - BEMSimpleLineGraph (4.1)
   - Realm (0.98.5):
     - Realm/Headers (= 0.98.5)
   - Realm/Headers (0.98.5)
   - RealmSwift (0.98.5):
     - Realm (= 0.98.5)
-  - ReSwift (0.2.5)
-  - ReSwiftRouter (0.2.5):
-    - ReSwift (= 0.2.5)
+  - ReSwift (1.0.0)
+  - ReSwiftRouter (0.2.6):
+    - ReSwift (~> 1.0)
   - RSDayFlow (1.4.0)
 
 DEPENDENCIES:
+  - BEMSimpleLineGraph
   - RealmSwift
   - ReSwift
   - ReSwiftRouter
   - RSDayFlow
 
 SPEC CHECKSUMS:
+  BEMSimpleLineGraph: 44fd451f27f8e9cf96f2da5bea27603093576dd1
   Realm: db08379969e45cea2edd1c3c0a090fe9e22d2d2f
   RealmSwift: cb11ad1c35e15dc982f2dbf5afe2a3124193a358
-  ReSwift: 0c7e65229f1457f13ed6be35342c1295df9bf9d9
-  ReSwiftRouter: d132a671bccf11958c31c0898547e06145d2614d
+  ReSwift: 2097946852b045bcc04182b63cdab9ab7fc35812
+  ReSwiftRouter: c0a4b0546a54a5ea3cc4d138520a4df78a57a208
   RSDayFlow: 5ed0506f67c19de74078d7ec7d7d4f8ead7b6efb
 
 COCOAPODS: 0.39.0

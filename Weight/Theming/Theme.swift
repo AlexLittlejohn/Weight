@@ -88,4 +88,25 @@ enum Colors {
             }
         }
     }
+    
+    enum Chart {
+        case Background, Label, Line, Circle, Popup, PopupBackground
+        
+        var color: UIColor {
+            switch self {
+            case .Background:
+                return UIColor(hexString: "fff")
+            case .Label:
+                return UIColor(hexString: "34495E")
+            case .Line:
+                return UIColor(hexString: "3498DB")
+            case .Circle:
+                return UIColor(hexString: "3498DB")
+            case .Popup:
+                return UIColor(hexString: "fff")
+            case .PopupBackground:
+                return UIColor(hexString: "3498DB")
+            }
+        }
+    }
 }

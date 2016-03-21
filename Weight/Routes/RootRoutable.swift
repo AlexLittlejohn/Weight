@@ -13,97 +13,70 @@ class RootRoutable: Routable {
     let navigationController: UINavigationController
     let rootStoryboard = "Storyboard"
     
-    
     init(navigationController: NavigationController) {
         self.navigationController = navigationController
     }
     
-    func setToWeightViewController() -> Routable {
+    func setToViewController(animated: Bool, identifier: String, viewControllerClass: AnyClass) -> Routable {
         
-        guard !(navigationController.topViewController is WeightViewController) else {
-            return navigationController.topViewController as! Routable
+        let itemMirror = Mirror(reflecting: viewControllerClass)
+        
+        if let topViewController = navigationController.topViewController {
+            let mirror = Mirror(reflecting: topViewController.self.dynamicType)
+            if mirror.subjectType == itemMirror.subjectType {
+                return topViewController as! Routable
+            }
         }
-
-        if let viewController = navigationController.viewControllers.filter({ $0 is WeightViewController }).first {
-            navigationController.popToViewController(viewController, animated: true)
+ 
+        if let viewController = navigationController.viewControllers.filter({ viewController in
+            let mirror = Mirror(reflecting: viewController.self.dynamicType)
+            return mirror.subjectType == itemMirror.subjectType
+        }).first {
+            navigationController.popToViewController(viewController, animated: animated)
             return viewController as! Routable
         }  else {
             let viewController = UIStoryboard(name: rootStoryboard, bundle: nil)
-                .instantiateViewControllerWithIdentifier(WeightViewController.identifier) as! WeightViewController
-            navigationController.pushViewController(viewController, animated: true)
-            return viewController
-        }
-    }
-    
-    func setToWeightCaptureViewController() -> Routable {
-        
-        guard !(navigationController.topViewController is WeightCaptureViewController) else {
-            return navigationController.topViewController as! Routable
-        }
-        
-        if let viewController = navigationController.viewControllers.filter({ $0 is WeightCaptureViewController }).first {
-            navigationController.popToViewController(viewController, animated: true)
+                .instantiateViewControllerWithIdentifier(identifier)
+            navigationController.pushViewController(viewController, animated: animated)
             return viewController as! Routable
-        }  else {
-            let viewController = UIStoryboard(name: rootStoryboard, bundle: nil)
-                .instantiateViewControllerWithIdentifier(WeightCaptureViewController.identifier) as! WeightCaptureViewController
-            navigationController.pushViewController(viewController, animated: true)
-            return viewController
         }
     }
     
-    func setToDateCaptureViewController() -> Routable {
-        
-        guard !(navigationController.topViewController is DateCaptureViewController) else {
-            return navigationController.topViewController as! Routable
-        }
-        
-        if let viewController = navigationController.viewControllers.filter({ $0 is DateCaptureViewController }).first {
-            navigationController.popToViewController(viewController, animated: true)
-            return viewController as! Routable
-        }  else {
-            let viewController = UIStoryboard(name: rootStoryboard, bundle: nil)
-                .instantiateViewControllerWithIdentifier(DateCaptureViewController.identifier) as! DateCaptureViewController
-            navigationController.pushViewController(viewController, animated: true)
-            return viewController
-        }
+    func setToWeightViewController(animated: Bool) -> Routable {
+        return setToViewController(animated, identifier: WeightViewController.identifier, viewControllerClass: WeightViewController.self)
     }
     
-    func changeRouteSegment(from: RouteElementIdentifier, to: RouteElementIdentifier, completionHandler: RoutingCompletionHandler) -> Routable {
+    func setToWeightCaptureViewController(animated: Bool) -> Routable {
+        return setToViewController(animated, identifier: WeightCaptureViewController.identifier, viewControllerClass: WeightCaptureViewController.self)
+    }
+    
+    func setToDateCaptureViewController(animated: Bool) -> Routable {
+        return setToViewController(animated, identifier: DateCaptureViewController.identifier, viewControllerClass: DateCaptureViewController.self)
+    }
+    
+    func changeRouteSegment(to: RouteElementIdentifier, animated: Bool, completionHandler: RoutingCompletionHandler) -> Routable {
+        completionHandler()
         
         if to == WeightViewController.identifier {
-            completionHandler()
-            return setToWeightViewController()
+            return setToWeightViewController(animated)
         } else if to == WeightCaptureViewController.identifier {
-            completionHandler()
-            return setToWeightCaptureViewController()
+            return setToWeightCaptureViewController(animated)
         } else if to == DateCaptureViewController.identifier {
-            completionHandler()
-            return setToDateCaptureViewController()
+            return setToDateCaptureViewController(animated)
         } else {
             fatalError("no valid routes")
         }
     }
     
-    func pushRouteSegment(routeElementIdentifier: RouteElementIdentifier, completionHandler: RoutingCompletionHandler) -> Routable {
-        
-        if routeElementIdentifier == WeightViewController.identifier {
-            completionHandler()
-            return setToWeightViewController()
-        } else if routeElementIdentifier == WeightCaptureViewController.identifier {
-            completionHandler()
-            return setToWeightCaptureViewController()
-        } else if routeElementIdentifier == DateCaptureViewController.identifier {
-            completionHandler()
-            return setToDateCaptureViewController()
-        } else {
-            fatalError("no valid routes")
-        }
+    func changeRouteSegment(from: RouteElementIdentifier, to: RouteElementIdentifier, animated: Bool, completionHandler: RoutingCompletionHandler) -> Routable {
+        return changeRouteSegment(to, animated: animated, completionHandler: completionHandler)
     }
     
-    func popRouteSegment(routeElementIdentifier: RouteElementIdentifier, completionHandler: RoutingCompletionHandler) {
-        // TODO: this should technically never be called -> bug in router
+    func pushRouteSegment(routeElementIdentifier: RouteElementIdentifier, animated: Bool, completionHandler: RoutingCompletionHandler) -> Routable {
+        return changeRouteSegment(routeElementIdentifier, animated: animated, completionHandler: completionHandler)
+    }
+    
+    func popRouteSegment(routeElementIdentifier: RouteElementIdentifier, animated: Bool, completionHandler: RoutingCompletionHandler) {
         completionHandler()
     }
-
 }

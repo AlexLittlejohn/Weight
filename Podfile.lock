@@ -1,4 +1,5 @@
 PODS:
+  - BEMSimpleLineGraph (4.1)
   - Realm (0.98.5):
     - Realm/Headers (= 0.98.5)
   - Realm/Headers (0.98.5)
@@ -10,12 +11,14 @@ PODS:
   - RSDayFlow (1.4.0)
 
 DEPENDENCIES:
+  - BEMSimpleLineGraph
   - RealmSwift
   - ReSwift
   - ReSwiftRouter
   - RSDayFlow
 
 SPEC CHECKSUMS:
+  BEMSimpleLineGraph: 44fd451f27f8e9cf96f2da5bea27603093576dd1
   Realm: db08379969e45cea2edd1c3c0a090fe9e22d2d2f
   RealmSwift: cb11ad1c35e15dc982f2dbf5afe2a3124193a358
   ReSwift: 2097946852b045bcc04182b63cdab9ab7fc35812

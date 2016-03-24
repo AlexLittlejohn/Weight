@@ -31,7 +31,7 @@ class WeightViewController: UIViewController, StoreSubscriber, Routable {
     @IBOutlet weak var minLabel: UILabel!
     @IBOutlet weak var minUnitsLabel: UILabel!
 
-    @IBOutlet weak var chartView: LineChartView!
+    @IBOutlet weak var chartView: ChartView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

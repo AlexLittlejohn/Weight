@@ -27,7 +27,7 @@ class WeightCaptureView: UIView {
         commonInit()
     }
     
-    func getWeightValue() -> Weight? {
+    func getValue() -> (weight: Double, unit: Unit)? {
         let selection = pickerView.selection
         let sorted = Array(selection.keys).sort(<)
         
@@ -46,22 +46,21 @@ class WeightCaptureView: UIView {
         }
         
         guard let unitString = selection[sorted[3]]?.title else {
-            return nil
+            return (weight: weightDouble, unit: .Kilograms)
         }
         
         let unit: Unit
         
         switch unitString {
-        case "lbs":
+        case localizedString("units.pounds"):
             unit = .Pounds
-        case "stone":
+        case localizedString("units.stone"):
             unit = .Stone
         default:
             unit = .Kilograms
         }
         
-        let weight = Weight(weight: weightDouble, date: NSDate(), unit: unit)
-        return weight
+        return (weight: weightDouble, unit: unit)
     }
     
     func commonInit() {

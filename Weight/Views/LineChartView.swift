@@ -8,10 +8,13 @@
 
 import UIKit
 import BEMSimpleLineGraph
+import ReSwift
 
 class LineChartView: UIView {
 
     let chart = BEMSimpleLineGraphView()
+    
+    var items = [Weight]()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,16 +39,22 @@ class LineChartView: UIView {
         
         chart.reloadGraph()
     }
+}
 
+extension LineChartView: StoreSubscriber {
+    func newState(state: AppState) {
+        items = state.weights
+        chart.reloadGraph()
+    }
 }
 
 extension LineChartView: BEMSimpleLineGraphDataSource {
     func numberOfPointsInLineGraph(graph: BEMSimpleLineGraphView) -> Int {
-        return mainStore.state.weights.count
+        return items.count
     }
     
     func lineGraph(graph: BEMSimpleLineGraphView, valueForPointAtIndex index: Int) -> CGFloat {
-        let value = mainStore.state.weights[index].weight
+        let value = items[index].weight
         return CGFloat(value)
     }
 }

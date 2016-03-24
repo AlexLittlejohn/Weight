@@ -31,6 +31,8 @@ class WeightViewController: UIViewController, StoreSubscriber, Routable {
     @IBOutlet weak var minLabel: UILabel!
     @IBOutlet weak var minUnitsLabel: UILabel!
 
+    @IBOutlet weak var chartView: LineChartView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,10 +59,12 @@ class WeightViewController: UIViewController, StoreSubscriber, Routable {
     
     override func viewWillAppear(animated: Bool) {
         mainStore.subscribe(self)
+        mainStore.subscribe(chartView)
     }
     
     override func viewWillDisappear(animated: Bool) {
         mainStore.unsubscribe(self)
+        mainStore.unsubscribe(chartView)
     }
     
     func newState(state: AppState) {

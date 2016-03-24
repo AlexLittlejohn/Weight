@@ -19,3 +19,13 @@ extension Weight {
         return convert(weight, unit: unit, targetUnit: toUnit)
     }
 }
+
+extension Weight: Equatable { }
+
+func ==(lhs: Weight, rhs: Weight) -> Bool {
+    
+    let w1 = lhs.convertTo(.Kilograms)
+    let w2 = rhs.convertTo(.Kilograms)
+    
+    return w1 == w2 && lhs.date == rhs.date
+}

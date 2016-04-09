@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -116,17 +116,25 @@
                                     <action selector="addGoal:" destination="iXF-dH-7Rf" eventType="touchUpInside" id="OXT-F6-RMR"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kbg-e8-lk7" customClass="ChartView" customModule="Weight" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="370.5" width="600" height="229.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="c6L-Hk-cGx" firstAttribute="leading" secondItem="uBx-Gj-HeQ" secondAttribute="leading" id="23S-CR-c8B"/>
                             <constraint firstItem="lvR-fy-lvO" firstAttribute="leading" secondItem="c6L-Hk-cGx" secondAttribute="leading" id="3Us-OC-Dad"/>
                             <constraint firstItem="uBx-Gj-HeQ" firstAttribute="leading" secondItem="FDm-3E-e5m" secondAttribute="leading" id="3br-4D-Sn6"/>
+                            <constraint firstAttribute="trailing" secondItem="kbg-e8-lk7" secondAttribute="trailing" id="3m7-Ma-WyK"/>
                             <constraint firstItem="nyt-dR-DgC" firstAttribute="leading" secondItem="uBx-Gj-HeQ" secondAttribute="trailing" constant="7.5" id="60v-EQ-bGb"/>
                             <constraint firstItem="c6L-Hk-cGx" firstAttribute="top" secondItem="uBx-Gj-HeQ" secondAttribute="bottom" constant="40" id="CSz-Ef-pHF"/>
                             <constraint firstItem="USj-HO-2Bs" firstAttribute="leading" secondItem="lvR-fy-lvO" secondAttribute="trailing" constant="7.5" id="Dnw-R6-Ly6"/>
                             <constraint firstItem="RHA-Yr-Hyn" firstAttribute="baseline" secondItem="uKL-Gz-awS" secondAttribute="baseline" id="FAn-x2-9yT"/>
                             <constraint firstItem="6c7-7m-g53" firstAttribute="leading" secondItem="fyw-4D-yZT" secondAttribute="trailing" priority="999" constant="20" id="Fz5-Ak-MSa"/>
+                            <constraint firstItem="kbg-e8-lk7" firstAttribute="leading" secondItem="6D6-Mm-9WB" secondAttribute="leading" id="HLq-bz-kig"/>
+                            <constraint firstItem="kbg-e8-lk7" firstAttribute="top" secondItem="6c7-7m-g53" secondAttribute="bottom" constant="30" id="Nmd-X5-LRm"/>
                             <constraint firstItem="ux2-gU-9Z5" firstAttribute="top" secondItem="EKi-MT-Rgb" secondAttribute="bottom" constant="20" id="OiU-8f-sG1"/>
                             <constraint firstItem="RHA-Yr-Hyn" firstAttribute="leading" secondItem="uKL-Gz-awS" secondAttribute="trailing" constant="4" id="Sab-IU-Lk0"/>
                             <constraint firstItem="uKL-Gz-awS" firstAttribute="leading" secondItem="hgd-6J-E26" secondAttribute="leading" id="TGk-82-lCy"/>
@@ -139,6 +147,7 @@
                             <constraint firstItem="fyw-4D-yZT" firstAttribute="baseline" secondItem="1AQ-Oc-QAy" secondAttribute="baseline" id="fFU-hc-TJF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ux2-gU-9Z5" secondAttribute="trailing" constant="20" id="fWe-vn-8QS"/>
                             <constraint firstItem="XNQ-r7-mwe" firstAttribute="leading" secondItem="USj-HO-2Bs" secondAttribute="trailing" constant="8" id="hUo-yb-6Ni"/>
+                            <constraint firstItem="38j-XS-phG" firstAttribute="top" secondItem="kbg-e8-lk7" secondAttribute="bottom" id="kS6-sn-HaQ"/>
                             <constraint firstItem="lvR-fy-lvO" firstAttribute="top" secondItem="c6L-Hk-cGx" secondAttribute="bottom" id="kaH-9u-6De"/>
                             <constraint firstItem="p9H-6N-8ZZ" firstAttribute="top" secondItem="lvR-fy-lvO" secondAttribute="bottom" constant="40" id="qgy-4J-5h7"/>
                             <constraint firstItem="6c7-7m-g53" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="p9H-6N-8ZZ" secondAttribute="trailing" constant="20" id="sUI-BM-RrY"/>
@@ -155,6 +164,7 @@
                     </view>
                     <connections>
                         <outlet property="addGoalButton" destination="XNQ-r7-mwe" id="DU2-hN-ZaM"/>
+                        <outlet property="chartView" destination="kbg-e8-lk7" id="WJv-WX-K81"/>
                         <outlet property="currentUnitsLabel" destination="nyt-dR-DgC" id="Lbm-JC-UEG"/>
                         <outlet property="currentWeightLabel" destination="uBx-Gj-HeQ" id="CeU-Gm-eqi"/>
                         <outlet property="dateLabel" destination="FDm-3E-e5m" id="EHe-4C-W0A"/>

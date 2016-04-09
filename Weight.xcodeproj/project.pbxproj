@@ -43,6 +43,7 @@
 		C49D9A5A1C7B8EE500A0656A /* MainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49D9A591C7B8EE500A0656A /* MainStore.swift */; };
 		C49D9A5C1C7B933900A0656A /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49D9A5B1C7B933900A0656A /* AppReducer.swift */; };
 		C49D9A5E1C7B93C500A0656A /* WeightReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49D9A5D1C7B93C500A0656A /* WeightReducer.swift */; };
+		C4AB4A411C9E98D70013ADEE /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AB4A401C9E98D70013ADEE /* ChartView.swift */; };
 		C4DAF8581C92E24E005BE419 /* Convertors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DAF8571C92E24E005BE419 /* Convertors.swift */; };
 		C4DD3FB91C80A48400369BFA /* WeightCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DD3FB81C80A48400369BFA /* WeightCaptureView.swift */; };
 		C4DD3FBC1C80AC9600369BFA /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DD3FBB1C80AC9600369BFA /* PickerView.swift */; };
@@ -89,6 +90,7 @@
 		C49D9A591C7B8EE500A0656A /* MainStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainStore.swift; sourceTree = "<group>"; };
 		C49D9A5B1C7B933900A0656A /* AppReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
 		C49D9A5D1C7B93C500A0656A /* WeightReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightReducer.swift; sourceTree = "<group>"; };
+		C4AB4A401C9E98D70013ADEE /* ChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartView.swift; path = Weight/Views/ChartView.swift; sourceTree = SOURCE_ROOT; };
 		C4DAF8571C92E24E005BE419 /* Convertors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convertors.swift; sourceTree = "<group>"; };
 		C4DD3FB81C80A48400369BFA /* WeightCaptureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightCaptureView.swift; sourceTree = "<group>"; };
 		C4DD3FBB1C80AC9600369BFA /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
@@ -129,7 +131,7 @@
 			children = (
 				C406DA171C86EC42002D2191 /* Theme.swift */,
 			);
-			name = Theming;
+			path = Theming;
 			sourceTree = "<group>";
 		};
 		C40B90C41C78CE6D00BA56C0 = {
@@ -153,9 +155,8 @@
 		C40B90CF1C78CE6D00BA56C0 /* Weight */ = {
 			isa = PBXGroup;
 			children = (
-				C4DAF8561C92E23B005BE419 /* Convertors */,
-				C406DA161C86EBEC002D2191 /* Theming */,
 				C40B90EE1C79B45D00BA56C0 /* Actions */,
+				C4DAF8561C92E23B005BE419 /* Convertors */,
 				C4281A6D1C7E1C4A004FA0C9 /* Extensions */,
 				C47E876D1C79FFC100EE0DE4 /* Middleware */,
 				C40B90EB1C79B1EA00BA56C0 /* Model */,
@@ -164,6 +165,7 @@
 				C47E876A1C79F8A900EE0DE4 /* States */,
 				C49D9A581C7B8ED100A0656A /* Store */,
 				C40B90E41C78CE8D00BA56C0 /* Supporting Files */,
+				C406DA161C86EBEC002D2191 /* Theming */,
 				C4281A721C7E239B004FA0C9 /* Views */,
 				C40B90D01C78CE6D00BA56C0 /* AppDelegate.swift */,
 			);
@@ -184,12 +186,12 @@
 		C40B90EB1C79B1EA00BA56C0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C40B90EC1C79B20300BA56C0 /* Weight.swift */,
-				C43D08391C9411B300FA875F /* Goal.swift */,
-				C43D08311C93FD8A00FA875F /* WeightDBO.swift */,
-				C43D083B1C9411EC00FA875F /* GoalDBO.swift */,
 				C43D082F1C93FD6700FA875F /* CaptureMode.swift */,
+				C43D08391C9411B300FA875F /* Goal.swift */,
+				C43D083B1C9411EC00FA875F /* GoalDBO.swift */,
 				C43D08331C93FDAE00FA875F /* Units.swift */,
+				C40B90EC1C79B20300BA56C0 /* Weight.swift */,
+				C43D08311C93FD8A00FA875F /* WeightDBO.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -197,8 +199,8 @@
 		C40B90EE1C79B45D00BA56C0 /* Actions */ = {
 			isa = PBXGroup;
 			children = (
-				C47E876B1C79F91E00EE0DE4 /* AddWeightAction.swift */,
 				C43D08351C94104700FA875F /* AddGoalAction.swift */,
+				C47E876B1C79F91E00EE0DE4 /* AddWeightAction.swift */,
 				C43D083D1C941C7C00FA875F /* SetCaptureModeAction.swift */,
 				C46C6C761C9B3B89000814AB /* SetDateAction.swift */,
 			);
@@ -218,12 +220,13 @@
 		C4281A721C7E239B004FA0C9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C40B90E91C78EE0600BA56C0 /* Storyboard.storyboard */,
-				C4DD3FBA1C80AC8400369BFA /* Picker */,
-				C4C486461C7F2151004CC7F2 /* Navigation */,
+				C4AB4A3F1C9E98890013ADEE /* Chart */,
 				C46C6C731C9B2DD3000814AB /* Date Capture */,
+				C4C486461C7F2151004CC7F2 /* Navigation */,
+				C4DD3FBA1C80AC8400369BFA /* Picker */,
 				C4C486471C7F2162004CC7F2 /* Weight */,
 				C45B57851C7F7FD500245876 /* Weight Capture */,
+				C40B90E91C78EE0600BA56C0 /* Storyboard.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -239,10 +242,10 @@
 		C45B57851C7F7FD500245876 /* Weight Capture */ = {
 			isa = PBXGroup;
 			children = (
-				C40B90E51C78CED600BA56C0 /* WeightCaptureViewController.swift */,
 				C4DD3FB81C80A48400369BFA /* WeightCaptureView.swift */,
+				C40B90E51C78CED600BA56C0 /* WeightCaptureViewController.swift */,
 			);
-			name = "Weight Capture";
+			path = "Weight Capture";
 			sourceTree = "<group>";
 		};
 		C46C6C731C9B2DD3000814AB /* Date Capture */ = {
@@ -250,17 +253,17 @@
 			children = (
 				C46C6C741C9B2E35000814AB /* DateCaptureViewController.swift */,
 			);
-			name = "Date Capture";
+			path = "Date Capture";
 			sourceTree = "<group>";
 		};
 		C47E87691C79F89D00EE0DE4 /* Reducers */ = {
 			isa = PBXGroup;
 			children = (
 				C49D9A5B1C7B933900A0656A /* AppReducer.swift */,
-				C49D9A5D1C7B93C500A0656A /* WeightReducer.swift */,
-				C43D083F1C941D4F00FA875F /* GoalReducer.swift */,
-				C43D08411C941E1D00FA875F /* CaptureModeReducer.swift */,
 				C46C6C781C9B3CD9000814AB /* CaptureDateReducer.swift */,
+				C43D08411C941E1D00FA875F /* CaptureModeReducer.swift */,
+				C43D083F1C941D4F00FA875F /* GoalReducer.swift */,
+				C49D9A5D1C7B93C500A0656A /* WeightReducer.swift */,
 			);
 			path = Reducers;
 			sourceTree = "<group>";
@@ -276,8 +279,8 @@
 		C47E876D1C79FFC100EE0DE4 /* Middleware */ = {
 			isa = PBXGroup;
 			children = (
-				C47E876E1C7A002A00EE0DE4 /* SaveWeightMiddleware.swift */,
 				C43D08371C9410F800FA875F /* SaveGoalMiddleware.swift */,
+				C47E876E1C7A002A00EE0DE4 /* SaveWeightMiddleware.swift */,
 			);
 			path = Middleware;
 			sourceTree = "<group>";
@@ -290,12 +293,20 @@
 			path = Store;
 			sourceTree = "<group>";
 		};
+		C4AB4A3F1C9E98890013ADEE /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				C4AB4A401C9E98D70013ADEE /* ChartView.swift */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
 		C4C486461C7F2151004CC7F2 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
 				C4281A791C7E29E2004FA0C9 /* NavigationController.swift */,
 			);
-			name = Navigation;
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 		C4C486471C7F2162004CC7F2 /* Weight */ = {
@@ -303,7 +314,7 @@
 			children = (
 				C40B90E71C78E19A00BA56C0 /* WeightViewController.swift */,
 			);
-			name = Weight;
+			path = Weight;
 			sourceTree = "<group>";
 		};
 		C4DAF8561C92E23B005BE419 /* Convertors */ = {
@@ -311,17 +322,17 @@
 			children = (
 				C4DAF8571C92E24E005BE419 /* Convertors.swift */,
 			);
-			name = Convertors;
+			path = Convertors;
 			sourceTree = "<group>";
 		};
 		C4DD3FBA1C80AC8400369BFA /* Picker */ = {
 			isa = PBXGroup;
 			children = (
-				C4DD3FBB1C80AC9600369BFA /* PickerView.swift */,
 				C406DA141C86E9A1002D2191 /* PickerItemView.swift */,
 				C406DA1B1C86FD08002D2191 /* PickerLayout.swift */,
+				C4DD3FBB1C80AC9600369BFA /* PickerView.swift */,
 			);
-			name = Picker;
+			path = Picker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -492,6 +503,7 @@
 				C40B90ED1C79B20300BA56C0 /* Weight.swift in Sources */,
 				C406DA181C86EC42002D2191 /* Theme.swift in Sources */,
 				C49D9A5E1C7B93C500A0656A /* WeightReducer.swift in Sources */,
+				C4AB4A411C9E98D70013ADEE /* ChartView.swift in Sources */,
 				C43D08301C93FD6700FA875F /* CaptureMode.swift in Sources */,
 				C43D08321C93FD8A00FA875F /* WeightDBO.swift in Sources */,
 				C4DAF8581C92E24E005BE419 /* Convertors.swift in Sources */,

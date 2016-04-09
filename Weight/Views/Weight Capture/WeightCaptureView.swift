@@ -63,6 +63,17 @@ class WeightCaptureView: UIView {
         return (weight: weightDouble, unit: unit)
     }
     
+    func setValue(weight: Double, unit: Unit) {
+        
+        let wholeWeight = Int(round(weight))
+        let weightFraction = Int(floor((weight % 1) * 100 / 5))
+        let unitIndex = unit.rawValue
+        
+        pickerView.select(wholeWeight, section: 0, animated: false)
+        pickerView.select(weightFraction, section: 2, animated: false)
+        pickerView.select(unitIndex, section: 3, animated: false)
+    }
+    
     func commonInit() {
         
         var sections = [PickerSection]()
@@ -109,5 +120,12 @@ class WeightCaptureView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         pickerView.frame = bounds
+        
+        // not very clean, but it has the desired effect
+        guard let element = mainStore.state.weights.maxElement({ $0.date > $1.date }) else {
+            return
+        }
+        
+        setValue(element.weight, unit: element.unit)
     }
 }

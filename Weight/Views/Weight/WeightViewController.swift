@@ -59,12 +59,10 @@ class WeightViewController: UIViewController, StoreSubscriber, Routable {
     
     override func viewWillAppear(animated: Bool) {
         mainStore.subscribe(self)
-        mainStore.subscribe(chartView)
     }
     
     override func viewWillDisappear(animated: Bool) {
         mainStore.unsubscribe(self)
-        mainStore.unsubscribe(chartView)
     }
     
     func newState(state: AppState) {
@@ -122,6 +120,5 @@ class WeightViewController: UIViewController, StoreSubscriber, Routable {
         dateLabel.text = formatter.stringFromDate(element.date)
         
         currentWeightLabel.text = String(format: "%.2f", element.convertTo(unit))
-
     }
 }

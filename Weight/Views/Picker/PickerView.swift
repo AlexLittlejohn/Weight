@@ -120,15 +120,33 @@ class PickerView: UIView {
         return collectionViews.indexOf(collectionView)
     }
     
-    func select(idx: Int, sectionIndex: Int) {
+    func select(index: Int, section: Int, animated: Bool) {
+        
+        guard 0..<collectionViews.count ~= section else {
+            return
+        }
+        
+        let collectionView = collectionViews[section]
+        let count = collectionView.numberOfItemsInSection(0)
+        
+        guard 0..<count ~= index else {
+            return
+        }
+        
+        let indexPath = NSIndexPath(forRow: index, inSection: 0)
+        
+        collectionView.delegate?.collectionView!(collectionView, didSelectItemAtIndexPath: indexPath)
+    }
+    
+    func select(index: Int, sectionIndex: Int) {
         let section = sections[sectionIndex]
         let item: PickerItem
-        if idx >= section.items.count {
+        if index >= section.items.count {
             item = section.items.last!
-        } else if idx < 0 {
+        } else if index < 0 {
             item = section.items[0]
         } else {
-            item = section.items[idx]
+            item = section.items[index]
         }
         
         selection[sectionIndex] = item

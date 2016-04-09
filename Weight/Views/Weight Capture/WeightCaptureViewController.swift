@@ -44,13 +44,13 @@ class WeightCaptureViewController: UIViewController, StoreSubscriber, Routable {
     }
         
     @IBAction func confirm(sender: AnyObject) {
-        guard let weight = weightPicker.getWeightValue() else {
+        guard let pickerValue = weightPicker.getValue() else {
             return
         }
         
         let date = mainStore.state?.captureDate ?? NSDate()
         let mode = mainStore.state?.captureMode ?? .Weight
-        let addAction = action(mode, weight: weight, date: date)
+        let addAction = action(mode, weight: pickerValue.weight, unit: pickerValue.unit, date: date)
         let navigateAction = SetRouteAction([WeightViewController.identifier])
         
         mainStore.dispatch(addAction)
@@ -75,12 +75,12 @@ class WeightCaptureViewController: UIViewController, StoreSubscriber, Routable {
         configureDate(state.captureDate)
     }
     
-    func action(mode: CaptureMode, weight: Weight, date: NSDate) -> StandardActionConvertible {
+    func action(mode: CaptureMode, weight: Double, unit: Unit, date: NSDate) -> StandardActionConvertible {
         if mode == .Goal {
-            let goal = Goal(weight: weight.weight, unit:  weight.unit)
+            let goal = Goal(weight: weight, unit:  unit)
             return AddGoalAction(goal: goal)
         } else {
-            let w = Weight(weight: weight.weight, date: date, unit: weight.unit)
+            let w = Weight(weight: weight, date: date, unit: unit)
             return AddWeightAction(weight: w)
         }
     }

@@ -43,7 +43,7 @@
 		C49D9A5A1C7B8EE500A0656A /* MainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49D9A591C7B8EE500A0656A /* MainStore.swift */; };
 		C49D9A5C1C7B933900A0656A /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49D9A5B1C7B933900A0656A /* AppReducer.swift */; };
 		C49D9A5E1C7B93C500A0656A /* WeightReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49D9A5D1C7B93C500A0656A /* WeightReducer.swift */; };
-		C4AB4A411C9E98D70013ADEE /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AB4A401C9E98D70013ADEE /* LineChartView.swift */; };
+		C4AB4A411C9E98D70013ADEE /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AB4A401C9E98D70013ADEE /* ChartView.swift */; };
 		C4DAF8581C92E24E005BE419 /* Convertors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DAF8571C92E24E005BE419 /* Convertors.swift */; };
 		C4DD3FB91C80A48400369BFA /* WeightCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DD3FB81C80A48400369BFA /* WeightCaptureView.swift */; };
 		C4DD3FBC1C80AC9600369BFA /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DD3FBB1C80AC9600369BFA /* PickerView.swift */; };
@@ -90,7 +90,7 @@
 		C49D9A591C7B8EE500A0656A /* MainStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainStore.swift; sourceTree = "<group>"; };
 		C49D9A5B1C7B933900A0656A /* AppReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
 		C49D9A5D1C7B93C500A0656A /* WeightReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightReducer.swift; sourceTree = "<group>"; };
-		C4AB4A401C9E98D70013ADEE /* LineChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LineChartView.swift; path = Weight/Views/LineChartView.swift; sourceTree = SOURCE_ROOT; };
+		C4AB4A401C9E98D70013ADEE /* ChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartView.swift; path = Weight/Views/ChartView.swift; sourceTree = SOURCE_ROOT; };
 		C4DAF8571C92E24E005BE419 /* Convertors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convertors.swift; sourceTree = "<group>"; };
 		C4DD3FB81C80A48400369BFA /* WeightCaptureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightCaptureView.swift; sourceTree = "<group>"; };
 		C4DD3FBB1C80AC9600369BFA /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
@@ -296,7 +296,7 @@
 		C4AB4A3F1C9E98890013ADEE /* Chart */ = {
 			isa = PBXGroup;
 			children = (
-				C4AB4A401C9E98D70013ADEE /* LineChartView.swift */,
+				C4AB4A401C9E98D70013ADEE /* ChartView.swift */,
 			);
 			path = Chart;
 			sourceTree = "<group>";
@@ -503,7 +503,7 @@
 				C40B90ED1C79B20300BA56C0 /* Weight.swift in Sources */,
 				C406DA181C86EC42002D2191 /* Theme.swift in Sources */,
 				C49D9A5E1C7B93C500A0656A /* WeightReducer.swift in Sources */,
-				C4AB4A411C9E98D70013ADEE /* LineChartView.swift in Sources */,
+				C4AB4A411C9E98D70013ADEE /* ChartView.swift in Sources */,
 				C43D08301C93FD6700FA875F /* CaptureMode.swift in Sources */,
 				C43D08321C93FD8A00FA875F /* WeightDBO.swift in Sources */,
 				C4DAF8581C92E24E005BE419 /* Convertors.swift in Sources */,

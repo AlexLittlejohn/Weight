@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -116,7 +116,7 @@
                                     <action selector="addGoal:" destination="iXF-dH-7Rf" eventType="touchUpInside" id="OXT-F6-RMR"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kbg-e8-lk7" customClass="LineChartView" customModule="Weight" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kbg-e8-lk7" customClass="ChartView" customModule="Weight" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="370.5" width="600" height="229.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -164,6 +164,7 @@
                     </view>
                     <connections>
                         <outlet property="addGoalButton" destination="XNQ-r7-mwe" id="DU2-hN-ZaM"/>
+                        <outlet property="chartView" destination="kbg-e8-lk7" id="WJv-WX-K81"/>
                         <outlet property="currentUnitsLabel" destination="nyt-dR-DgC" id="Lbm-JC-UEG"/>
                         <outlet property="currentWeightLabel" destination="uBx-Gj-HeQ" id="CeU-Gm-eqi"/>
                         <outlet property="dateLabel" destination="FDm-3E-e5m" id="EHe-4C-W0A"/>

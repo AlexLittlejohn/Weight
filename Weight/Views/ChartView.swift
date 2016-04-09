@@ -8,17 +8,7 @@
 
 import UIKit
 
+/// FIXME: I feel empty on the inside...
 class ChartView: UIView {
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        backgroundColor = Colors.Chart.PopupBackground.color.lighten40()!
 
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-    
-    }
 }

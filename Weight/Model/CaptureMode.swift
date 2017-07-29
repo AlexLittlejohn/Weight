@@ -9,5 +9,5 @@
 import UIKit
 
 enum CaptureMode: Int {
-    case Goal = 0, Weight = 1
+    case goal = 0, weight = 1
 }

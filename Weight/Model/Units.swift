@@ -9,15 +9,15 @@
 import UIKit
 
 enum Unit: Int, CustomStringConvertible {
-    case Kilograms = 0, Pounds = 1, Stone = 2
+    case kilograms = 0, pounds = 1, stone = 2
     
     var description: String {
         switch self {
-        case .Kilograms:
+        case .kilograms:
             return localizedString("units.kilograms")
-        case .Pounds:
+        case .pounds:
             return localizedString("units.pounds")
-        case .Stone:
+        case .stone:
             return localizedString("units.stone")
         }
     }

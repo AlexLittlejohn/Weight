@@ -24,9 +24,9 @@ class PickerItemView: UICollectionViewCell {
     
     func commonInit() {
         addSubview(label)
-        label.textAlignment = .Center
-        label.font = Typography.PickerView.Item.font
-        label.textColor = Colors.PickerView.Item.color
+        label.textAlignment = .center
+        label.font = Typography.PickerView.item.font
+        label.textColor = Colors.PickerView.item.color
     }
     
     override func layoutSubviews() {
@@ -34,14 +34,14 @@ class PickerItemView: UICollectionViewCell {
         label.frame = bounds.insetBy(dx: 0, dy: 5)
     }
     
-    override var selected: Bool {
+    override var isSelected: Bool {
         didSet {
-            if selected {
-                label.textColor = Colors.PickerView.ItemSelected.color
-                backgroundColor = Colors.PickerView.ItemSelectedBackground.color
+            if isSelected {
+                label.textColor = Colors.PickerView.itemSelected.color
+                backgroundColor = Colors.PickerView.itemSelectedBackground.color
             } else {
-                label.textColor = Colors.PickerView.Item.color
-                backgroundColor = Colors.PickerView.ItemBackground.color
+                label.textColor = Colors.PickerView.item.color
+                backgroundColor = Colors.PickerView.itemBackground.color
             }
         }
     }

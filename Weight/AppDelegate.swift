@@ -7,24 +7,19 @@
 //
 
 import UIKit
-import ReSwiftRouter
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var router: Router<AppState>!
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
-        let rootViewController = NavigationController()
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        router = Router(store: mainStore, rootRoutable: RootRoutable(navigationController: rootViewController)) { state in
-            return state.navigationState
-        }
-        
-        window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        window?.rootViewController = rootViewController
+        let viewController = UIStoryboard(name: "Storyboard", bundle: Bundle.main).instantiateViewController(withIdentifier: "WeightViewController")
+        let navigationController = NavigationController(rootViewController: viewController)
+
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
 
         return true

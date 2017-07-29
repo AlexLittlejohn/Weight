@@ -8,7 +8,6 @@
 
 import UIKit
 import ReSwift
-import ReSwiftRouter
 
 class NavigationController: UINavigationController {
 

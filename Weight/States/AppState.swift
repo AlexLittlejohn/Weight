@@ -8,29 +8,25 @@
 
 import RealmSwift
 import ReSwift
-import ReSwiftRouter
 
 struct AppState: StateType {
     var weights: [Weight]
-    var navigationState: NavigationState
     var unit: Unit
     var captureMode: CaptureMode
-    var captureDate: NSDate
+    var captureDate: Date
     var goal: Goal?
 }
 
 func populatedAppState() -> AppState {
     let realm = try! Realm()
-    let weights = realm.objects(WeightDBO).map { $0.structValue() }
-    let goal = realm.objects(GoalDBO).first?.structValue() ?? nil
-    let action = SetRouteAction([WeightViewController.identifier])
+    let weights: [Weight] = realm.objects(WeightDBO.self).flatMap { $0.structValue() }
+    let goal = realm.objects(GoalDBO.self).first?.structValue() ?? nil
 
     return AppState(
         weights: weights,
-        navigationState: NavigationReducer.handleAction(action, state: nil),
-        unit: .Kilograms,
-        captureMode: .Weight,
-        captureDate: NSDate(),
+        unit: .kilograms,
+        captureMode: .weight,
+        captureDate: Date(),
         goal: goal
     )
 }

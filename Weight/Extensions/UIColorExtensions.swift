@@ -8,25 +8,25 @@
 
 import UIKit
 
-private func extractColorComponent(colorString: String, start: Int, length: Int) -> CGFloat {
+private func extractColorComponent(_ colorString: String, start: Int, length: Int) -> CGFloat {
     let substring = colorString.subString(start, length: length)
     let fullHex = length == 2 ? substring : substring + substring
     var hexComponent:CUnsignedInt = 0
-    NSScanner(string: fullHex).scanHexInt(&hexComponent)
+    Scanner(string: fullHex).scanHexInt32(&hexComponent)
     return CGFloat(hexComponent) / CGFloat(255)
 }
 
 /// String init
 extension UIColor {
     convenience init(hexString: String) {
-        let colorString = hexString.stringByReplacingOccurrencesOfString("#", withString: "").uppercaseString
+        let colorString = hexString.replacingOccurrences(of: "#:", with: "").uppercased()
         
         var red: CGFloat = 0
         var green: CGFloat = 0
         var blue: CGFloat = 0
         var alpha: CGFloat = 0
         
-        switch colorString.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) {
+        switch colorString.lengthOfBytes(using: String.Encoding.utf8) {
         case 3:
             red = extractColorComponent(colorString, start: 0, length: 1)
             green = extractColorComponent(colorString, start: 1, length: 1)
@@ -78,7 +78,7 @@ extension UIColor {
         return brightness(1.4)
     }
     
-    func brightness(brightness: CGFloat) -> UIColor? {
+    func brightness(_ brightness: CGFloat) -> UIColor? {
         var h: CGFloat = 0
         var s: CGFloat = 0
         var b: CGFloat = 0
@@ -93,17 +93,17 @@ extension UIColor {
 }
 
 extension UIColor {
-    func interpolate(end: UIColor, progress: CGFloat) -> UIColor {
+    func interpolate(_ end: UIColor, progress: CGFloat) -> UIColor {
         var f = max(0, progress)
         f = min(1, progress)
         
-        let c1 = CGColorGetComponents(self.CGColor)
-        let c2 = CGColorGetComponents(end.CGColor)
+        let c1 = self.cgColor.components
+        let c2 = end.cgColor.components
         
-        let r: CGFloat = CGFloat(c1[0] + (c2[0] - c1[0]) * f)
-        let g: CGFloat = CGFloat(c1[1] + (c2[1] - c1[1]) * f)
-        let b: CGFloat = CGFloat(c1[2] + (c2[2] - c1[2]) * f)
-        let a: CGFloat = CGFloat(c1[3] + (c2[3] - c1[3]) * f)
+        let r: CGFloat = CGFloat(c1![0] + (c2![0] - c1![0]) * f)
+        let g: CGFloat = CGFloat(c1![1] + (c2![1] - c1![1]) * f)
+        let b: CGFloat = CGFloat(c1![2] + (c2![2] - c1![2]) * f)
+        let a: CGFloat = CGFloat(c1![3] + (c2![3] - c1![3]) * f)
         
         return UIColor.init(red:r, green:g, blue:b, alpha:a)
     }

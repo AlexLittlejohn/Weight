@@ -9,15 +9,15 @@
 import UIKit
 
 extension String {
-    func subString(start: Int, length: Int) -> String {
-        let _start = startIndex.advancedBy(start)
-        let _end = startIndex.advancedBy(start + length)
-        return substringWithRange(_start..<_end)
+    func subString(_ start: Int, length: Int) -> String {
+        let _start = characters.index(startIndex, offsetBy: start)
+        let _end = characters.index(startIndex, offsetBy: start + length)
+        return substring(with: _start..<_end)
     }
 }
 
 extension String {
-    func size(attributes: [String:AnyObject], constrainedSize: CGSize) -> CGSize {
+    func size(_ attributes: [String:AnyObject], constrainedSize: CGSize) -> CGSize {
         let storage = NSTextStorage(string: self)
         let container = NSTextContainer(size: CGSize(width: constrainedSize.width, height: constrainedSize.height))
         let layout = NSLayoutManager()
@@ -25,23 +25,23 @@ extension String {
         storage.addLayoutManager(layout)
         storage.addAttributes(attributes, range: NSMakeRange(0, storage.length))
         container.lineFragmentPadding = 0.0
-        let _ = layout.glyphRangeForTextContainer(container)
-        return layout.usedRectForTextContainer(container).size
+        let _ = layout.glyphRange(for: container)
+        return layout.usedRect(for: container).size
     }
 }
 
 extension String {
     func trim() -> String {
-        return stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        return trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
 }
 
 extension String {
     var length: Int {
-        return lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
+        return lengthOfBytes(using: String.Encoding.utf8)
     }
 }
 
-func localizedString(key: String) -> String {
-    return NSLocalizedString(key, tableName: "Localizable", bundle: NSBundle.mainBundle(), comment: key)
+func localizedString(_ key: String) -> String {
+    return NSLocalizedString(key, tableName: "Localizable", bundle: Bundle.main, comment: key)
 }

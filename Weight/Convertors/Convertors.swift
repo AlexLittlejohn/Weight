@@ -8,57 +8,57 @@
 
 import UIKit
 
-func kilogramsToStone(value: Double) -> Double {
+func kilogramsToStone(_ value: Double) -> Double {
     return value / 6.35029
 }
 
-func kilogramsToPounds(value: Double) -> Double {
+func kilogramsToPounds(_ value: Double) -> Double {
     return value * 2.20462
 }
 
-func poundsToStone(value: Double) -> Double {
+func poundsToStone(_ value: Double) -> Double {
     return value / 14
 }
 
-func poundsToKilograms(value: Double) -> Double {
+func poundsToKilograms(_ value: Double) -> Double {
     return value / 2.20462
 }
 
-func stoneToPounds(value: Double) -> Double {
+func stoneToPounds(_ value: Double) -> Double {
     return value * 14
 }
 
-func stoneToKilograms(value: Double) -> Double {
+func stoneToKilograms(_ value: Double) -> Double {
     return value * 6.35029
 }
 
-func convert(value: Double, unit: Unit, targetUnit: Unit) -> Double {
+func convert(_ value: Double, unit: Unit, targetUnit: Unit) -> Double {
     switch unit {
-    case .Kilograms:
+    case .kilograms:
         switch targetUnit {
-        case .Pounds:
+        case .pounds:
             return kilogramsToPounds(value)
-        case .Stone:
+        case .stone:
             return kilogramsToStone(value)
-        case .Kilograms:
+        case .kilograms:
             return value
         }
-    case .Pounds:
+    case .pounds:
         switch targetUnit {
-        case .Pounds:
+        case .pounds:
             return value
-        case .Stone:
+        case .stone:
             return poundsToStone(value)
-        case .Kilograms:
+        case .kilograms:
             return poundsToKilograms(value)
         }
-    case .Stone:
+    case .stone:
         switch targetUnit {
-        case .Pounds:
+        case .pounds:
             return stoneToPounds(value)
-        case .Stone:
+        case .stone:
             return value
-        case .Kilograms:
+        case .kilograms:
             return stoneToKilograms(value)
         }
     }

@@ -16,6 +16,6 @@ class GoalDBO: Object {
 
 extension GoalDBO {
     func structValue() -> Goal {
-        return Goal(weight: weight, unit: Unit(rawValue: unit) ?? .Kilograms)
+        return Goal(weight: weight, unit: Unit(rawValue: unit) ?? .kilograms)
     }
 }

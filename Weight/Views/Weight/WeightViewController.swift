@@ -8,16 +8,13 @@
 
 import UIKit
 import ReSwift
-import ReSwiftRouter
 
-class WeightViewController: UIViewController, StoreSubscriber, Routable {
-
-    static let identifier = "WeightViewController"
+class WeightViewController: UIViewController, StoreSubscriber {
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var currentWeightLabel: UILabel!
     @IBOutlet weak var currentUnitsLabel: UILabel!
-    
+
     @IBOutlet weak var goalTitleLabel: UILabel!
     @IBOutlet weak var goalLabel: UILabel!
     @IBOutlet weak var goalUnitsLabel: UILabel!
@@ -41,27 +38,20 @@ class WeightViewController: UIViewController, StoreSubscriber, Routable {
         minTitleLabel.text = localizedString("minTitleLabel")
     }
     
-    @IBAction func addWeight(sender: AnyObject) {
-        let modeAction = SetCaptureModeAction(mode: .Weight)
-        let dateAction = SetDateAction(date: NSDate())
-        let navigateAction = SetRouteAction([WeightCaptureViewController.identifier])
-        mainStore.dispatch(modeAction)
-        mainStore.dispatch(dateAction)
-        mainStore.dispatch(navigateAction)
+    @IBAction func addWeight(_ sender: AnyObject) {
+        mainStore.dispatch(Actions.setCaptureMoDe(.weight))
+        mainStore.dispatch(Actions.setDate(Date()))
     }
     
-    @IBAction func addGoal(sender: AnyObject) {
-        let modeAction = SetCaptureModeAction(mode: .Goal)
-        let navigateAction = SetRouteAction([WeightCaptureViewController.identifier])
-        mainStore.dispatch(modeAction)
-        mainStore.dispatch(navigateAction)
+    @IBAction func addGoal(_ sender: AnyObject) {
+        mainStore.dispatch(Actions.setCaptureMoDe(.goal))
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         mainStore.subscribe(self)
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         mainStore.unsubscribe(self)
     }
     
@@ -69,55 +59,55 @@ class WeightViewController: UIViewController, StoreSubscriber, Routable {
         updateCurrent(state.weights, unit: state.unit)
         updateMaximums(state.weights, unit: state.unit)
         updateMinimums(state.weights, unit: state.unit)
-        updateUnits(state.unit)
-        updateGoal(state.goal, unit: state.unit)
+        update(unit: state.unit)
+        update(goal: state.goal, unit: state.unit)
     }
     
-    func updateUnits(unit: Unit) {
+    func update(unit: Unit) {
         currentUnitsLabel.text = unit.description
         goalUnitsLabel.text = unit.description
         maxUnitsLabel.text = unit.description
         minUnitsLabel.text = unit.description
     }
     
-    func updateMinimums(weights: [Weight], unit: Unit) {
-        guard let element = weights.minElement({ $0.convertTo(unit) < $1.convertTo(unit) }) else {
+    func updateMinimums(_ weights: [Weight], unit: Unit) {
+        guard let element = weights.min(by: { $0.convertTo(unit) < $1.convertTo(unit) }) else {
             return
         }
         
         minLabel.text = String(format: "%.2f", element.convertTo(unit))
     }
     
-    func updateMaximums(weights: [Weight], unit: Unit) {
-        guard let element = weights.maxElement({ $0.convertTo(unit) < $1.convertTo(unit) }) else {
+    func updateMaximums(_ weights: [Weight], unit: Unit) {
+        guard let element = weights.max(by: { $0.convertTo(unit) < $1.convertTo(unit) }) else {
             return
         }
         
         maxLabel.text = String(format: "%.2f", element.convertTo(unit))
     }
     
-    func updateGoal(goal: Goal?, unit: Unit) {
+    func update(goal: Goal?, unit: Unit) {
         if let goal = goal {
-            goalUnitsLabel.hidden = false
-            goalLabel.hidden = false
+            goalUnitsLabel.isHidden = false
+            goalLabel.isHidden = false
             goalLabel.text = String(format: "%.2f", goal.convertTo(unit))
-            addGoalButton.setTitle(localizedString("changeGoalButtonTitle"), forState: .Normal)
+            addGoalButton.setTitle(localizedString("changeGoalButtonTitle"), for: UIControlState())
         } else {
-            goalUnitsLabel.hidden = true
-            goalLabel.hidden = true
-            addGoalButton.setTitle(localizedString("addGoalButtonTitle"), forState: .Normal)
+            goalUnitsLabel.isHidden = true
+            goalLabel.isHidden = true
+            addGoalButton.setTitle(localizedString("addGoalButtonTitle"), for: UIControlState())
         }
     }
     
-    func updateCurrent(weights: [Weight], unit: Unit) {
-        guard let element = weights.maxElement({ $0.date > $1.date }) else {
+    func updateCurrent(_ weights: [Weight], unit: Unit) {
+        guard let element = weights.max(by: { $0.date >= $1.date }) else {
             return
         }
         
-        let formatter = NSDateFormatter()
-        formatter.dateStyle = .LongStyle
-        formatter.timeStyle = .NoStyle
-        dateLabel.text = formatter.stringFromDate(element.date)
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle = .none
+        dateLabel.text = formatter.string(from: element.date as Date)
         
         currentWeightLabel.text = String(format: "%.2f", element.convertTo(unit))
     }

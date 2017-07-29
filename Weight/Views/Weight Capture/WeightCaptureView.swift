@@ -29,7 +29,7 @@ class WeightCaptureView: UIView {
     
     func getValue() -> (weight: Double, unit: Unit)? {
         let selection = pickerView.selection
-        let sorted = Array(selection.keys).sort(<)
+        let sorted = Array(selection.keys).sorted(by: <)
         
         var weightString = ""
         for i in 0..<3 {
@@ -39,34 +39,34 @@ class WeightCaptureView: UIView {
             weightString += value.trim()
         }
         
-        let formatter = NSNumberFormatter()
-        formatter.numberStyle = .DecimalStyle
-        guard let weightDouble = formatter.numberFromString(weightString)?.doubleValue else {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        guard let weightDouble = formatter.number(from: weightString)?.doubleValue else {
             return nil
         }
         
         guard let unitString = selection[sorted[3]]?.title else {
-            return (weight: weightDouble, unit: .Kilograms)
+            return (weight: weightDouble, unit: .kilograms)
         }
         
         let unit: Unit
         
         switch unitString {
         case localizedString("units.pounds"):
-            unit = .Pounds
+            unit = .pounds
         case localizedString("units.stone"):
-            unit = .Stone
+            unit = .stone
         default:
-            unit = .Kilograms
+            unit = .kilograms
         }
         
         return (weight: weightDouble, unit: unit)
     }
     
-    func setValue(weight: Double, unit: Unit) {
+    func setValue(_ weight: Double, unit: Unit) {
         
         let wholeWeight = Int(round(weight))
-        let weightFraction = Int(floor((weight % 1) * 100 / 5))
+        let weightFraction = Int(floor((weight.truncatingRemainder(dividingBy: 1)) * 100 / 5))
         let unitIndex = unit.rawValue
         
         pickerView.select(wholeWeight, section: 0, animated: false)
@@ -86,19 +86,19 @@ class WeightCaptureView: UIView {
                     let item = PickerItem(title: "\(i)")
                     items.append(item)
                 }
-                let section = PickerSection(items: items, width: 100, font: Typography.PickerView.Item.font, alignment: .Right)
+                let section = PickerSection(items: items, width: 100, font: Typography.PickerView.item.font, alignment: .right)
                 sections.append(section)
             case 1:
-                let item = PickerItem(title: NSNumberFormatter().decimalSeparator)
-                let section = PickerSection(items: [item], width: 10, font: Typography.PickerView.Item.font, alignment: .Center)
+                let item = PickerItem(title: NumberFormatter().decimalSeparator)
+                let section = PickerSection(items: [item], width: 10, font: Typography.PickerView.item.font, alignment: .center)
                 sections.append(section)
             case 2:
                 var items = [PickerItem]()
-                for i in 0.stride(to: 100, by: 5) {
+                for i in stride(from: 0, to: 100, by: 5) {
                     let item = PickerItem(title: String(format: "%02d", i))
                     items.append(item)
                 }
-                let section = PickerSection(items: items, width: 60, font: Typography.PickerView.Item.font, alignment: .Left)
+                let section = PickerSection(items: items, width: 60, font: Typography.PickerView.item.font, alignment: .left)
                 sections.append(section)
             case 3:
                 var items = [PickerItem]()
@@ -106,7 +106,7 @@ class WeightCaptureView: UIView {
                     let item = PickerItem(title: "\(Unit(rawValue: i)!)")
                     items.append(item)
                 }
-                let section = PickerSection(items: items, width: 70, font: Typography.PickerView.UnitItem.font, alignment: .Left)
+                let section = PickerSection(items: items, width: 70, font: Typography.PickerView.unitItem.font, alignment: .left)
                 sections.append(section)
             default:
                 break
@@ -122,7 +122,7 @@ class WeightCaptureView: UIView {
         pickerView.frame = bounds
         
         // not very clean, but it has the desired effect
-        guard let element = mainStore.state.weights.maxElement({ $0.date > $1.date }) else {
+        guard let element = mainStore.state.weights.max(by: { $0.date >= $1.date }) else {
             return
         }
         

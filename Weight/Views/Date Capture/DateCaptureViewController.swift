@@ -8,57 +8,46 @@
 
 import UIKit
 import ReSwift
-import ReSwiftRouter
 import RSDayFlow
 
-class DateCaptureViewController: UIViewController, Routable {
-    
-    static let identifier = "DateCaptureViewController"
-
+class DateCaptureViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var calendarView: RSDFDatePickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleLabel.font = Typography.NavigationBar.Title.font
-        titleLabel.textColor = Colors.NavigationBar.Title.color
+        titleLabel.font = Typography.NavigationBar.title.font
+        titleLabel.textColor = Colors.NavigationBar.title.color
         
         calendarView.delegate = self
-        calendarView.pagingEnabled = true
+        calendarView.isPagingEnabled = true
     }
     
-    @IBAction func confirm(sender: AnyObject) {
-        let action = SetRouteAction([WeightCaptureViewController.identifier])
-        mainStore.dispatch(action)
+    @IBAction func confirm(_ sender: AnyObject) {
+
     }
     
-    @IBAction func cancel(sender: AnyObject) {
-        let action = SetRouteAction([WeightCaptureViewController.identifier])
-        mainStore.dispatch(action)
+    @IBAction func cancel(_ sender: AnyObject) {
+
     }
     
-    @IBAction func scrollToToday(sender: AnyObject) {
-        calendarView.scrollToToday(true)
+    @IBAction func scrollToToday(_ sender: AnyObject) {
+        calendarView.scroll(toToday: true)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        calendarView.selectDate(NSDate())
+        calendarView.select(Date())
     }
 }
 
 extension DateCaptureViewController: RSDFDatePickerViewDelegate {
-    func datePickerView(view: RSDFDatePickerView!, shouldSelectDate date: NSDate!) -> Bool {
-        return NSDate().compare(date) == NSComparisonResult.OrderedDescending
+    func datePickerView(_ view: RSDFDatePickerView, shouldSelect date: Date) -> Bool {
+        return Date().compare(date) == ComparisonResult.orderedDescending
     }
     
-    func datePickerView(view: RSDFDatePickerView!, didSelectDate date: NSDate!) {
-        guard let date = date else {
-            return
-        }
-        
-        let action = SetDateAction(date: date)
-        mainStore.dispatch(action)
+    func datePickerView(_ view: RSDFDatePickerView, didSelect date: Date) {
+        mainStore.dispatch(Actions.setDate(date))
     }
 }

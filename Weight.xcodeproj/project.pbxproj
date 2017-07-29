@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		458A254E5D3EA3253DC787EB /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0086287C88DE1A46F553612 /* Pods.framework */; };
+		61013E8DEDEB8B61077460F6 /* Pods_Weight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00405F2B532EBB063F5E4463 /* Pods_Weight.framework */; };
+		7C4839B21F2C9581003B5949 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4839B11F2C9581003B5949 /* Actions.swift */; };
 		C406DA151C86E9A1002D2191 /* PickerItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C406DA141C86E9A1002D2191 /* PickerItemView.swift */; };
 		C406DA181C86EC42002D2191 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C406DA171C86EC42002D2191 /* Theme.swift */; };
 		C406DA1C1C86FD08002D2191 /* PickerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C406DA1B1C86FD08002D2191 /* PickerLayout.swift */; };
@@ -22,27 +23,18 @@
 		C4281A711C7E21F7004FA0C9 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4281A701C7E21F7004FA0C9 /* DateExtensions.swift */; };
 		C4281A751C7E23CD004FA0C9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4281A771C7E23CD004FA0C9 /* Localizable.strings */; };
 		C4281A7A1C7E29E2004FA0C9 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4281A791C7E29E2004FA0C9 /* NavigationController.swift */; };
-		C4281A861C7E2D33004FA0C9 /* RootRoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4281A851C7E2D33004FA0C9 /* RootRoutable.swift */; };
 		C43D08301C93FD6700FA875F /* CaptureMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D082F1C93FD6700FA875F /* CaptureMode.swift */; };
 		C43D08321C93FD8A00FA875F /* WeightDBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D08311C93FD8A00FA875F /* WeightDBO.swift */; };
 		C43D08341C93FDAE00FA875F /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D08331C93FDAE00FA875F /* Units.swift */; };
-		C43D08361C94104700FA875F /* AddGoalAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D08351C94104700FA875F /* AddGoalAction.swift */; };
 		C43D08381C9410F800FA875F /* SaveGoalMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D08371C9410F800FA875F /* SaveGoalMiddleware.swift */; };
 		C43D083A1C9411B300FA875F /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D08391C9411B300FA875F /* Goal.swift */; };
 		C43D083C1C9411EC00FA875F /* GoalDBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D083B1C9411EC00FA875F /* GoalDBO.swift */; };
-		C43D083E1C941C7C00FA875F /* SetCaptureModeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D083D1C941C7C00FA875F /* SetCaptureModeAction.swift */; };
-		C43D08401C941D4F00FA875F /* GoalReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D083F1C941D4F00FA875F /* GoalReducer.swift */; };
-		C43D08421C941E1D00FA875F /* CaptureModeReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D08411C941E1D00FA875F /* CaptureModeReducer.swift */; };
 		C4495AA81C918CE800CF2D5D /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4495AA71C918CE800CF2D5D /* UIColorExtensions.swift */; };
 		C46C6C751C9B2E35000814AB /* DateCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C6C741C9B2E35000814AB /* DateCaptureViewController.swift */; };
-		C46C6C771C9B3B89000814AB /* SetDateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C6C761C9B3B89000814AB /* SetDateAction.swift */; };
-		C46C6C791C9B3CD9000814AB /* CaptureDateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C6C781C9B3CD9000814AB /* CaptureDateReducer.swift */; };
-		C47E876C1C79F91E00EE0DE4 /* AddWeightAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47E876B1C79F91E00EE0DE4 /* AddWeightAction.swift */; };
 		C47E876F1C7A002A00EE0DE4 /* SaveWeightMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47E876E1C7A002A00EE0DE4 /* SaveWeightMiddleware.swift */; };
 		C47E87711C7A042E00EE0DE4 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47E87701C7A042E00EE0DE4 /* AppState.swift */; };
 		C49D9A5A1C7B8EE500A0656A /* MainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49D9A591C7B8EE500A0656A /* MainStore.swift */; };
 		C49D9A5C1C7B933900A0656A /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49D9A5B1C7B933900A0656A /* AppReducer.swift */; };
-		C49D9A5E1C7B93C500A0656A /* WeightReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49D9A5D1C7B93C500A0656A /* WeightReducer.swift */; };
 		C4AB4A411C9E98D70013ADEE /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AB4A401C9E98D70013ADEE /* ChartView.swift */; };
 		C4DAF8581C92E24E005BE419 /* Convertors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DAF8571C92E24E005BE419 /* Convertors.swift */; };
 		C4DD3FB91C80A48400369BFA /* WeightCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DD3FB81C80A48400369BFA /* WeightCaptureView.swift */; };
@@ -50,8 +42,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		208F91AD3FBE16B98E8B5CDA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		B49FC6EE8DCA7DA473DF14D1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		00405F2B532EBB063F5E4463 /* Pods_Weight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D78957A3BEB8F74EC35E8DD /* Pods-Weight.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weight.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weight/Pods-Weight.debug.xcconfig"; sourceTree = "<group>"; };
+		7C4839B11F2C9581003B5949 /* Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
+		B3439EC1A20215AE9B54E230 /* Pods-Weight.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weight.release.xcconfig"; path = "Pods/Target Support Files/Pods-Weight/Pods-Weight.release.xcconfig"; sourceTree = "<group>"; };
 		C406DA141C86E9A1002D2191 /* PickerItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerItemView.swift; sourceTree = "<group>"; };
 		C406DA171C86EC42002D2191 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		C406DA1B1C86FD08002D2191 /* PickerLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerLayout.swift; sourceTree = "<group>"; };
@@ -69,27 +63,18 @@
 		C4281A761C7E23CD004FA0C9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C4281A781C7E23D0004FA0C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C4281A791C7E29E2004FA0C9 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
-		C4281A851C7E2D33004FA0C9 /* RootRoutable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootRoutable.swift; sourceTree = "<group>"; };
 		C43D082F1C93FD6700FA875F /* CaptureMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureMode.swift; sourceTree = "<group>"; };
 		C43D08311C93FD8A00FA875F /* WeightDBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightDBO.swift; sourceTree = "<group>"; };
 		C43D08331C93FDAE00FA875F /* Units.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
-		C43D08351C94104700FA875F /* AddGoalAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGoalAction.swift; sourceTree = "<group>"; };
 		C43D08371C9410F800FA875F /* SaveGoalMiddleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveGoalMiddleware.swift; sourceTree = "<group>"; };
 		C43D08391C9411B300FA875F /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		C43D083B1C9411EC00FA875F /* GoalDBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalDBO.swift; sourceTree = "<group>"; };
-		C43D083D1C941C7C00FA875F /* SetCaptureModeAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetCaptureModeAction.swift; sourceTree = "<group>"; };
-		C43D083F1C941D4F00FA875F /* GoalReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalReducer.swift; sourceTree = "<group>"; };
-		C43D08411C941E1D00FA875F /* CaptureModeReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureModeReducer.swift; sourceTree = "<group>"; };
 		C4495AA71C918CE800CF2D5D /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		C46C6C741C9B2E35000814AB /* DateCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCaptureViewController.swift; sourceTree = "<group>"; };
-		C46C6C761C9B3B89000814AB /* SetDateAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetDateAction.swift; sourceTree = "<group>"; };
-		C46C6C781C9B3CD9000814AB /* CaptureDateReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureDateReducer.swift; sourceTree = "<group>"; };
-		C47E876B1C79F91E00EE0DE4 /* AddWeightAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWeightAction.swift; sourceTree = "<group>"; };
 		C47E876E1C7A002A00EE0DE4 /* SaveWeightMiddleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveWeightMiddleware.swift; sourceTree = "<group>"; };
 		C47E87701C7A042E00EE0DE4 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		C49D9A591C7B8EE500A0656A /* MainStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainStore.swift; sourceTree = "<group>"; };
 		C49D9A5B1C7B933900A0656A /* AppReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
-		C49D9A5D1C7B93C500A0656A /* WeightReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightReducer.swift; sourceTree = "<group>"; };
 		C4AB4A401C9E98D70013ADEE /* ChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartView.swift; path = Weight/Views/ChartView.swift; sourceTree = SOURCE_ROOT; };
 		C4DAF8571C92E24E005BE419 /* Convertors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convertors.swift; sourceTree = "<group>"; };
 		C4DD3FB81C80A48400369BFA /* WeightCaptureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightCaptureView.swift; sourceTree = "<group>"; };
@@ -102,7 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				458A254E5D3EA3253DC787EB /* Pods.framework in Frameworks */,
+				61013E8DEDEB8B61077460F6 /* Pods_Weight.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,15 +98,16 @@
 			isa = PBXGroup;
 			children = (
 				F0086287C88DE1A46F553612 /* Pods.framework */,
+				00405F2B532EBB063F5E4463 /* Pods_Weight.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		37C9B37123448292ECBAF555 /* Pods */ = {
+		9647EB2473C327E0B43985F5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B49FC6EE8DCA7DA473DF14D1 /* Pods.debug.xcconfig */,
-				208F91AD3FBE16B98E8B5CDA /* Pods.release.xcconfig */,
+				1D78957A3BEB8F74EC35E8DD /* Pods-Weight.debug.xcconfig */,
+				B3439EC1A20215AE9B54E230 /* Pods-Weight.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -138,9 +124,9 @@
 			isa = PBXGroup;
 			children = (
 				3450568E46AC56C912CB6C4E /* Frameworks */,
-				37C9B37123448292ECBAF555 /* Pods */,
 				C40B90CE1C78CE6D00BA56C0 /* Products */,
 				C40B90CF1C78CE6D00BA56C0 /* Weight */,
+				9647EB2473C327E0B43985F5 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -199,10 +185,7 @@
 		C40B90EE1C79B45D00BA56C0 /* Actions */ = {
 			isa = PBXGroup;
 			children = (
-				C43D08351C94104700FA875F /* AddGoalAction.swift */,
-				C47E876B1C79F91E00EE0DE4 /* AddWeightAction.swift */,
-				C43D083D1C941C7C00FA875F /* SetCaptureModeAction.swift */,
-				C46C6C761C9B3B89000814AB /* SetDateAction.swift */,
+				7C4839B11F2C9581003B5949 /* Actions.swift */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -234,7 +217,6 @@
 		C4281A841C7E2D16004FA0C9 /* Routes */ = {
 			isa = PBXGroup;
 			children = (
-				C4281A851C7E2D33004FA0C9 /* RootRoutable.swift */,
 			);
 			path = Routes;
 			sourceTree = "<group>";
@@ -260,10 +242,6 @@
 			isa = PBXGroup;
 			children = (
 				C49D9A5B1C7B933900A0656A /* AppReducer.swift */,
-				C46C6C781C9B3CD9000814AB /* CaptureDateReducer.swift */,
-				C43D08411C941E1D00FA875F /* CaptureModeReducer.swift */,
-				C43D083F1C941D4F00FA875F /* GoalReducer.swift */,
-				C49D9A5D1C7B93C500A0656A /* WeightReducer.swift */,
 			);
 			path = Reducers;
 			sourceTree = "<group>";
@@ -342,13 +320,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C40B90E11C78CE6D00BA56C0 /* Build configuration list for PBXNativeTarget "Weight" */;
 			buildPhases = (
-				2A40546D0DD567FE2DFB32D5 /* Check Pods Manifest.lock */,
+				720806F748FFE35A1A330C95 /* [CP] Check Pods Manifest.lock */,
 				C40B90C91C78CE6D00BA56C0 /* Sources */,
 				C40B90CA1C78CE6D00BA56C0 /* Frameworks */,
-				C4281A871C7E3B98004FA0C9 /* ShellScript */,
 				C40B90CB1C78CE6D00BA56C0 /* Resources */,
-				B0F2FB0172B9793ACEBDC928 /* Embed Pods Frameworks */,
-				7A6F0DD93335EE59CBF3E843 /* Copy Pods Resources */,
+				949A31D95BFBB67A2E254D35 /* [CP] Embed Pods Frameworks */,
+				00F2CE18E9FA0660265C8648 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -371,6 +348,8 @@
 				TargetAttributes = {
 					C40B90CC1C78CE6D00BA56C0 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 2466624KEK;
+						LastSwiftMigration = 0830;
 					};
 				};
 			};
@@ -407,63 +386,50 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2A40546D0DD567FE2DFB32D5 /* Check Pods Manifest.lock */ = {
+		00F2CE18E9FA0660265C8648 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Weight/Pods-Weight-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7A6F0DD93335EE59CBF3E843 /* Copy Pods Resources */ = {
+		720806F748FFE35A1A330C95 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		B0F2FB0172B9793ACEBDC928 /* Embed Pods Frameworks */ = {
+		949A31D95BFBB67A2E254D35 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Weight/Pods-Weight-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		C4281A871C7E3B98004FA0C9 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "python \"$PROJECT_DIR/slice.py\" \"$PROJECT_DIR/WeightAssets.sketch\" \"$PROJECT_DIR/Weight/Supporting Files/Assets.xcassets\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -474,37 +440,29 @@
 			files = (
 				C43D083C1C9411EC00FA875F /* GoalDBO.swift in Sources */,
 				C47E876F1C7A002A00EE0DE4 /* SaveWeightMiddleware.swift in Sources */,
-				C43D083E1C941C7C00FA875F /* SetCaptureModeAction.swift in Sources */,
 				C43D08341C93FDAE00FA875F /* Units.swift in Sources */,
 				C40B90E81C78E19A00BA56C0 /* WeightViewController.swift in Sources */,
-				C46C6C791C9B3CD9000814AB /* CaptureDateReducer.swift in Sources */,
 				C43D08381C9410F800FA875F /* SaveGoalMiddleware.swift in Sources */,
-				C43D08421C941E1D00FA875F /* CaptureModeReducer.swift in Sources */,
 				C47E87711C7A042E00EE0DE4 /* AppState.swift in Sources */,
 				C49D9A5C1C7B933900A0656A /* AppReducer.swift in Sources */,
 				C4DD3FBC1C80AC9600369BFA /* PickerView.swift in Sources */,
 				C43D083A1C9411B300FA875F /* Goal.swift in Sources */,
 				C46C6C751C9B2E35000814AB /* DateCaptureViewController.swift in Sources */,
-				C43D08361C94104700FA875F /* AddGoalAction.swift in Sources */,
 				C4DD3FB91C80A48400369BFA /* WeightCaptureView.swift in Sources */,
-				C46C6C771C9B3B89000814AB /* SetDateAction.swift in Sources */,
 				C40B90D11C78CE6D00BA56C0 /* AppDelegate.swift in Sources */,
 				C406DA151C86E9A1002D2191 /* PickerItemView.swift in Sources */,
 				C4281A711C7E21F7004FA0C9 /* DateExtensions.swift in Sources */,
-				C43D08401C941D4F00FA875F /* GoalReducer.swift in Sources */,
 				C49D9A5A1C7B8EE500A0656A /* MainStore.swift in Sources */,
 				C4281A6F1C7E1C5E004FA0C9 /* StringExtensions.swift in Sources */,
 				C4281A7A1C7E29E2004FA0C9 /* NavigationController.swift in Sources */,
-				C4281A861C7E2D33004FA0C9 /* RootRoutable.swift in Sources */,
 				C406DA1C1C86FD08002D2191 /* PickerLayout.swift in Sources */,
 				C40B90E61C78CED600BA56C0 /* WeightCaptureViewController.swift in Sources */,
 				C4495AA81C918CE800CF2D5D /* UIColorExtensions.swift in Sources */,
-				C47E876C1C79F91E00EE0DE4 /* AddWeightAction.swift in Sources */,
 				C40B90ED1C79B20300BA56C0 /* Weight.swift in Sources */,
 				C406DA181C86EC42002D2191 /* Theme.swift in Sources */,
-				C49D9A5E1C7B93C500A0656A /* WeightReducer.swift in Sources */,
 				C4AB4A411C9E98D70013ADEE /* ChartView.swift in Sources */,
 				C43D08301C93FD6700FA875F /* CaptureMode.swift in Sources */,
+				7C4839B21F2C9581003B5949 /* Actions.swift in Sources */,
 				C43D08321C93FD8A00FA875F /* WeightDBO.swift in Sources */,
 				C4DAF8581C92E24E005BE419 /* Convertors.swift in Sources */,
 			);
@@ -620,25 +578,29 @@
 		};
 		C40B90E21C78CE6D00BA56C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B49FC6EE8DCA7DA473DF14D1 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 1D78957A3BEB8F74EC35E8DD /* Pods-Weight.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2466624KEK;
 				INFOPLIST_FILE = "Weight/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zero.Weight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		C40B90E31C78CE6D00BA56C0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 208F91AD3FBE16B98E8B5CDA /* Pods.release.xcconfig */;
+			baseConfigurationReference = B3439EC1A20215AE9B54E230 /* Pods-Weight.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2466624KEK;
 				INFOPLIST_FILE = "Weight/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zero.Weight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

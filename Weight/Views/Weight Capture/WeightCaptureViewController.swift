@@ -8,12 +8,8 @@
 
 import UIKit
 import ReSwift
-import ReSwiftRouter
 
-class WeightCaptureViewController: UIViewController, StoreSubscriber, Routable {
-    
-    static let identifier = "WeightCaptureViewController"
-
+class WeightCaptureViewController: UIViewController, StoreSubscriber {
     @IBOutlet weak var weightPicker: WeightCaptureView!
     @IBOutlet weak var gradientView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -25,72 +21,68 @@ class WeightCaptureViewController: UIViewController, StoreSubscriber, Routable {
         let gradient = CAGradientLayer()
         
         gradient.frame = gradientView.bounds
-        gradient.colors = [UIColor.blackColor().CGColor, UIColor.blackColor().CGColor, UIColor.clearColor().CGColor]
+        gradient.colors = [UIColor.black.cgColor, UIColor.black.cgColor, UIColor.clear.cgColor]
         gradient.locations = [0.0, 0.65, 1.0]
         gradientView.layer.mask = gradient
         
-        titleLabel.font = Typography.NavigationBar.Title.font
-        titleLabel.textColor = Colors.NavigationBar.Title.color
+        titleLabel.font = Typography.NavigationBar.title.font
+        titleLabel.textColor = Colors.NavigationBar.title.color
         
-        dateLabel.font = Typography.DateButton.Title.font
-        dateLabel.textColor = Colors.DateButton.Title.color
+        dateLabel.font = Typography.DateButton.title.font
+        dateLabel.textColor = Colors.DateButton.title.color
         
-        view.sendSubviewToBack(weightPicker)
+        view.sendSubview(toBack: weightPicker)
     }
     
-    @IBAction func changeDate(sender: AnyObject) {
-        let action = SetRouteAction([DateCaptureViewController.identifier])
-        mainStore.dispatch(action)
+    @IBAction func changeDate(_ sender: AnyObject) {
+
     }
         
-    @IBAction func confirm(sender: AnyObject) {
+    @IBAction func confirm(_ sender: AnyObject) {
         guard let pickerValue = weightPicker.getValue() else {
             return
         }
         
-        let date = mainStore.state?.captureDate ?? NSDate()
-        let mode = mainStore.state?.captureMode ?? .Weight
+        let date = mainStore.state?.captureDate ?? Date()
+        let mode = mainStore.state?.captureMode ?? .weight
         let addAction = action(mode, weight: pickerValue.weight, unit: pickerValue.unit, date: date)
-        let navigateAction = SetRouteAction([WeightViewController.identifier])
-        
+
         mainStore.dispatch(addAction)
-        mainStore.dispatch(navigateAction)
     }
     
-    @IBAction func cancel(sender: AnyObject) {
-        let action = SetRouteAction([WeightViewController.identifier])
-        mainStore.dispatch(action)
+    @IBAction func cancel(_ sender: AnyObject) {
+
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         mainStore.subscribe(self)
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         mainStore.unsubscribe(self)
     }
     
     func newState(state: AppState) {
         configureTitle(state.captureMode, goal: state.goal != nil)
-        configureDate(state.captureDate)
+        configureDate(state.captureDate as Date)
     }
     
-    func action(mode: CaptureMode, weight: Double, unit: Unit, date: NSDate) -> StandardActionConvertible {
-        if mode == .Goal {
+    func action(_ mode: CaptureMode, weight: Double, unit: Unit, date: Date) -> Action {
+        if mode == .goal {
             let goal = Goal(weight: weight, unit:  unit)
-            return AddGoalAction(goal: goal)
+            return Actions.addGoal(goal)
         } else {
             let w = Weight(weight: weight, date: date, unit: unit)
-            return AddWeightAction(weight: w)
+            return Actions.addWeight(w)
         }
     }
     
-    func configureTitle(mode: CaptureMode, goal: Bool) {
+    func configureTitle(_ mode: CaptureMode, goal: Bool) {
         let title: String
         switch mode {
-        case .Weight:
+        case .weight:
             title = localizedString("addWeightTitle")
-        case .Goal:
+        case .goal:
             if goal {
                 title = localizedString("changeGoalTitle")
             } else {
@@ -101,10 +93,10 @@ class WeightCaptureViewController: UIViewController, StoreSubscriber, Routable {
         titleLabel.text = title
     }
     
-    func configureDate(date: NSDate) {
-        let formatter = NSDateFormatter()
+    func configureDate(_ date: Date) {
+        let formatter = DateFormatter()
         formatter.dateFormat = "dd MMM"
         
-        dateLabel.text = formatter.stringFromDate(date)
+        dateLabel.text = formatter.string(from: date)
     }
 }

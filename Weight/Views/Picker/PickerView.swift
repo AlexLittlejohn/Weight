@@ -46,20 +46,20 @@ class PickerView: UIView {
             let layout = PickerLayout()
             layout.minimumInteritemSpacing = 0
             layout.minimumLineSpacing = 0
-            layout.sectionInset = UIEdgeInsetsZero
+            layout.sectionInset = UIEdgeInsets.zero
             
             let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: 1, height: 1), collectionViewLayout: layout)
             collectionView.delegate = self
             collectionView.dataSource = self
-            collectionView.registerClass(PickerItemView.self, forCellWithReuseIdentifier: cellIdentifier)
-            collectionView.backgroundColor = .clearColor()
+            collectionView.register(PickerItemView.self, forCellWithReuseIdentifier: cellIdentifier)
+            collectionView.backgroundColor = .clear
             collectionView.showsVerticalScrollIndicator = false
             
             let inset = (frame.height - section.height) / 2
             let insets = UIEdgeInsets(top: inset, left: 0, bottom: inset, right: 0)
             
             collectionView.contentInset = insets
-            collectionView.addObserver(self, forKeyPath: "contentOffset", options: .New, context: nil)
+            collectionView.addObserver(self, forKeyPath: "contentOffset", options: .new, context: nil)
             
             collectionViews.append(collectionView)
             
@@ -73,23 +73,23 @@ class PickerView: UIView {
         }
     }
     
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
         if keyPath == "contentOffset" {
-            guard let pointValue = change?[NSKeyValueChangeNewKey] as? NSValue, collectionView = object as? UICollectionView, sectionIndex = indexForView(collectionView) else {
+            guard let pointValue = change?[NSKeyValueChangeKey.newKey] as? NSValue, let collectionView = object as? UICollectionView, let sectionIndex = indexForView(collectionView) else {
                 return
             }
             
             let section = sections[sectionIndex]
-            let point = pointValue.CGPointValue()
+            let point = pointValue.cgPointValue
 
             let itemOffset = point.y + collectionView.frame.height/2
             let itemIndex = Int(floor(itemOffset / section.height))
             
-            let indexPath = NSIndexPath(forRow: itemIndex, inSection: 0)
+            let indexPath = IndexPath(row: itemIndex, section: 0)
             
             
-            collectionView.selectItemAtIndexPath(indexPath, animated: true, scrollPosition: .None)
+            collectionView.selectItem(at: indexPath, animated: true, scrollPosition: UICollectionViewScrollPosition())
             
             select(itemIndex, sectionIndex: sectionIndex)
         }
@@ -103,7 +103,7 @@ class PickerView: UIView {
         })/2
         
         let y: CGFloat = 0
-        for (idx, section) in sections.enumerate() {
+        for (idx, section) in sections.enumerated() {
             let width = section.width > 0 ? section.width : frame.size.width / CGFloat(sections.count)
             let height = frame.height
             collectionViews[idx].frame = CGRect(x: x, y: y, width: width, height: height)
@@ -116,29 +116,29 @@ class PickerView: UIView {
         }
     }
     
-    func indexForView(collectionView: UICollectionView) -> Int? {
-        return collectionViews.indexOf(collectionView)
+    func indexForView(_ collectionView: UICollectionView) -> Int? {
+        return collectionViews.index(of: collectionView)
     }
     
-    func select(index: Int, section: Int, animated: Bool) {
+    func select(_ index: Int, section: Int, animated: Bool) {
         
         guard 0..<collectionViews.count ~= section else {
             return
         }
         
         let collectionView = collectionViews[section]
-        let count = collectionView.numberOfItemsInSection(0)
+        let count = collectionView.numberOfItems(inSection: 0)
         
         guard 0..<count ~= index else {
             return
         }
         
-        let indexPath = NSIndexPath(forRow: index, inSection: 0)
+        let indexPath = IndexPath(row: index, section: 0)
         
-        collectionView.delegate?.collectionView!(collectionView, didSelectItemAtIndexPath: indexPath)
+        collectionView.delegate?.collectionView!(collectionView, didSelectItemAt: indexPath)
     }
     
-    func select(index: Int, sectionIndex: Int) {
+    func select(_ index: Int, sectionIndex: Int) {
         let section = sections[sectionIndex]
         let item: PickerItem
         if index >= section.items.count {
@@ -154,13 +154,13 @@ class PickerView: UIView {
 }
 
 extension PickerView: UICollectionViewDelegateFlowLayout {
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let height = sections[indexForView(collectionView)!].height
         let width = collectionView.frame.width
         return CGSize(width: width, height: height)
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let sectionIndex = indexForView(collectionView) else {
             return
         }
@@ -174,7 +174,7 @@ extension PickerView: UICollectionViewDelegateFlowLayout {
 }
 
 extension PickerView: UICollectionViewDataSource {
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let idx = indexForView(collectionView) else {
             return 0
         }
@@ -182,9 +182,9 @@ extension PickerView: UICollectionViewDataSource {
         return sections[idx].items.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! PickerItemView
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! PickerItemView
         let section = sections[indexForView(collectionView)!]
         let item = section.items[indexPath.row]
         

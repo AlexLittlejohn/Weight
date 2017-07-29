@@ -9,21 +9,21 @@
 import UIKit
 
 class PickerLayout: UICollectionViewFlowLayout {
-    override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
+    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         return true
     }
     
-    override func targetContentOffsetForProposedContentOffset(proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
+    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
         
         guard let collectionView = collectionView else {
             return proposedContentOffset
         }
         
-        var offsetAdjustment = CGFloat.max
+        var offsetAdjustment = CGFloat.greatestFiniteMagnitude
         let verticalCenter = proposedContentOffset.y + collectionView.bounds.height / 2.0
         
         let targetRect = CGRect(x: 0, y: proposedContentOffset.y, width: collectionView.bounds.width, height: collectionView.bounds.height)
-        let array = collectionView.collectionViewLayout.layoutAttributesForElementsInRect(targetRect)!
+        let array = collectionView.collectionViewLayout.layoutAttributesForElements(in: targetRect)!
         
         for layoutAttributes in array {
             let itemVerticalCenter = layoutAttributes.center.y

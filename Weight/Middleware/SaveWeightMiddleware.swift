@@ -10,26 +10,26 @@ import UIKit
 import ReSwift
 import RealmSwift
 
-let SaveWeightMiddleware: Middleware = { dispatch, getState in
+let SaveWeightMiddleware: Middleware<AppState> = { dispatch, getState in
     return { next in
         return { action in
             
-            if let addWeightAction = action as? AddWeightAction {
-                
-                let weightDBO = WeightDBO()
-                let weight = addWeightAction.weight
-                weightDBO.weight = weight.weight
-                weightDBO.date = weight.date
-                weightDBO.unit = weight.unit.rawValue
-                
-                guard let realm = try? Realm() else {
-                    return next(action)
-                }
-                
-                try! realm.write {
-                    realm.add(weightDBO)
-                }
-            }
+//            if let addWeightAction = action as? AddWeightAction {
+//                
+//                let weightDBO = WeightDBO()
+//                let weight = addWeightAction.weight
+//                weightDBO.weight = weight.weight
+//                weightDBO.date = weight.date
+//                weightDBO.unit = weight.unit.rawValue
+//                
+//                guard let realm = try? Realm() else {
+//                    return next(action)
+//                }
+//                
+//                try! realm.write {
+//                    realm.add(weightDBO)
+//                }
+//            }
             
             return next(action)
         }

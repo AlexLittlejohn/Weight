@@ -13,36 +13,36 @@ import UIKit
 
 enum Typography {
     enum PickerView {
-        case Item, UnitItem
+        case item, unitItem
         
         var font: UIFont {
             
             switch self {
-            case .Item:
+            case .item:
                 return UIFont(name: "HelveticaNeue-Light", size: 48)!
-            case .UnitItem:
+            case .unitItem:
                 return UIFont(name: "HelveticaNeue-Light", size: 28)!
             }
         }
     }
     
     enum NavigationBar {
-        case Title
+        case title
         
         var font: UIFont {
             switch self {
-            case .Title:
+            case .title:
                 return UIFont(name: "HelveticaNeue-Light", size: 24)!
             }
         }
     }
 
     enum DateButton {
-        case Title
+        case title
         
         var font: UIFont {
             switch self {
-            case .Title:
+            case .title:
                 return UIFont(name: "HelveticaNeue-Light", size: 16)!
             }
         }
@@ -51,60 +51,60 @@ enum Typography {
 
 enum Colors {
     enum PickerView {
-        case Item, ItemSelected, ItemBackground, ItemSelectedBackground
+        case item, itemSelected, itemBackground, itemSelectedBackground
         
         var color: UIColor {
             switch self {
-            case .Item:
+            case .item:
                 return UIColor(hexString: "BDC3C7")
-            case .ItemSelected:
+            case .itemSelected:
                 return UIColor(hexString: "3498DB")
-            case .ItemBackground:
+            case .itemBackground:
                 return UIColor(hexString: "fff")
-            case .ItemSelectedBackground:
+            case .itemSelectedBackground:
                 return UIColor(hexString: "fff")
             }
         }
     }
     
     enum NavigationBar {
-        case Title
+        case title
         
         var color: UIColor {
             switch self {
-            case .Title:
+            case .title:
                 return UIColor(hexString: "#34495E")
             }
         }
     }
     
     enum DateButton {
-        case Title
+        case title
         
         var color: UIColor {
             switch self {
-            case .Title:
+            case .title:
                 return UIColor(hexString: "#34495E")
             }
         }
     }
     
     enum Chart {
-        case Background, Label, Line, Circle, Popup, PopupBackground
+        case background, label, line, circle, popup, popupBackground
         
         var color: UIColor {
             switch self {
-            case .Background:
+            case .background:
                 return UIColor(hexString: "fff")
-            case .Label:
+            case .label:
                 return UIColor(hexString: "34495E")
-            case .Line:
+            case .line:
                 return UIColor(hexString: "3498DB")
-            case .Circle:
+            case .circle:
                 return UIColor(hexString: "3498DB")
-            case .Popup:
+            case .popup:
                 return UIColor(hexString: "fff")
-            case .PopupBackground:
+            case .popupBackground:
                 return UIColor(hexString: "3498DB")
             }
         }
